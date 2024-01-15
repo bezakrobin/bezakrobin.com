@@ -103,6 +103,8 @@
     --move-initial: calc(-25% + var(--offset));
     --move-final: calc(-50% + var(--offset));
     font-size: 4vw;
+    top: 100px;
+    position: absolute;
 }
 
 .marquee {
