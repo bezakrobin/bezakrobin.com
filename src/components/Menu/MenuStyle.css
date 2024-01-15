@@ -21,7 +21,23 @@
     margin: 40px 100px;
 }
 
+.socials-mobile {
+    position: absolute;
+    bottom: 100px !important;
+    left: 0;
+    margin: 20px 40px;
+    justify-content: space-between;
+}
+
 .socials span {
+    text-transform: uppercase;
+    margin: 0 20px;
+    font-family: 'MyCustomFont', sans-serif;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.socials-mobile span {
     text-transform: uppercase;
     margin: 0 20px;
     font-family: 'MyCustomFont', sans-serif;

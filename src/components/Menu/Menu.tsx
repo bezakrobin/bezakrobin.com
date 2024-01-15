@@ -19,7 +19,7 @@ export const Menu: React.FC = () => {
         return () => {
           window.open(url, '_blank');
         };
-      };
+    };
 
     useEffect(() => {
         t1.current = gsap.timeline({ paused: true })
@@ -69,7 +69,7 @@ export const Menu: React.FC = () => {
             <div className='nav-container'>
                 <div className='menu-close' onClick={toggleMenu}>close</div>
                 <nav className="menu">
-                    <div className="menu__item">
+                    <div className="menu__item" style={{ paddingBottom: context?.app.app.isPhone ? '20px' : '0px' }}>
                         <a className="menu__item-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Home</a>
                         <div className="marquee">
                             <div className="marquee__inner">
@@ -77,7 +77,7 @@ export const Menu: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="menu__item">
+                    <div className="menu__item" style={{ paddingBottom: context?.app.app.isPhone ? '20px' : '0px' }}>
                         <a className="menu__item-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Showcase</a>
                         <div className="marquee">
                             <div className="marquee__inner">
@@ -85,7 +85,7 @@ export const Menu: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="menu__item" >
+                    <div className="menu__item" style={{ paddingBottom: context?.app.app.isPhone ? '20px' : '0px' }}>
                         <a className="menu__item-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>About</a>
                         <div className="marquee">
                             <div className="marquee__inner">
@@ -93,7 +93,7 @@ export const Menu: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="menu__item">
+                    <div className="menu__item" style={{ paddingBottom: context?.app.app.isPhone ? '20px' : '0px' }}>
                         <a className="menu__item-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Contact</a>
                         <div className="marquee">
                             <div className="marquee__inner">
@@ -102,7 +102,7 @@ export const Menu: React.FC = () => {
                         </div>
                     </div>
                 </nav>
-                <div className='socials'>
+                <div className={`${context?.app.app.isPhone ? 'socials-mobile' : 'socials'}`}>
                     <span onClick={openLink('https://www.facebook.com/roby.bezak/')}>facebook</span>
                     <span onClick={openLink('https://www.instagram.com/robin.bezak/')}>instagram</span>
                 </div>
