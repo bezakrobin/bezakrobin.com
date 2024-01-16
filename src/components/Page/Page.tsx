@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './PageStyle.css';
 import ArrowUp from '../../images/ArrowKeys/ArrowUp.svg'
 import ArrowDown from '../../images/ArrowKeys/ArrowDown.svg'
@@ -6,6 +6,7 @@ import ArrowLeft from '../../images/ArrowKeys/ArrowLeft.svg'
 import ArrowRight from '../../images/ArrowKeys/ArrowRight.svg'
 
 interface PageProps {
+    title: string;
     children?: React.ReactNode;
     arrowUp?: boolean;
     arrowDown?: boolean;
@@ -15,9 +16,14 @@ interface PageProps {
     onArrowDownMouseUp?: () => void;
     onArrowLeftMouseUp?: () => void;
     onArrowRightMouseUp?: () => void;
+    onArrowUpKeyUp?: () => void;
+    onArrowDownKeyUp?: () => void;
+    onArrowLeftKeyUp?: () => void;
+    onArrowRightKeyUp?: () => void;
 }
 
 export const Page: React.FC<PageProps> = ({
+                                              title,
                                               children,
                                               arrowUp,
                                               arrowDown,
@@ -27,14 +33,54 @@ export const Page: React.FC<PageProps> = ({
                                               onArrowDownMouseUp,
                                               onArrowLeftMouseUp,
                                               onArrowRightMouseUp,
+                                              onArrowUpKeyUp,
+                                              onArrowDownKeyUp,
+                                              onArrowLeftKeyUp,
+                                              onArrowRightKeyUp,
                                           }) => {
+    useEffect(() => {
+        const handleKeyUp = (event: KeyboardEvent) => {
+            if (event.key === 'ArrowUp' && onArrowUpKeyUp) {
+                onArrowUpKeyUp();
+            } else if (event.key === 'ArrowDown' && onArrowDownKeyUp) {
+                onArrowDownKeyUp();
+            } else if (event.key === 'ArrowLeft' && onArrowLeftKeyUp) {
+                onArrowLeftKeyUp();
+            } else if (event.key === 'ArrowRight' && onArrowRightKeyUp) {
+                onArrowRightKeyUp();
+            }
+        };
+
+        window.addEventListener('keyup', handleKeyUp);
+
+        return () => {
+            window.removeEventListener('keyup', handleKeyUp);
+        };
+    }, [onArrowUpKeyUp, onArrowDownKeyUp, onArrowLeftKeyUp, onArrowRightKeyUp]);
+
     return (
         <div className="page">
-            {arrowUp && <div className="top-centered"><img src={ArrowUp} alt="Arrow Up" className="arrow" onMouseUp={onArrowUpMouseUp} /></div>}
-            {arrowDown && <div className="bottom-centered"><img src={ArrowDown} alt="Arrow Down" className="arrow" onMouseUp={onArrowDownMouseUp} /></div>}
-            {arrowLeft && <div className="left-centered"><img src={ArrowLeft} alt="Arrow Left" className="arrow" onMouseUp={onArrowLeftMouseUp} /></div>}
-            {arrowRight && <div className="right-centered"><img src={ArrowRight} alt="Arrow Right" className="arrow" onMouseUp={onArrowRightMouseUp} /></div>}
-            {children}
+            {arrowUp && (
+                <div className="top-centered">
+                    <img src={ArrowUp} alt="Arrow Up" className="arrow" onMouseUp={onArrowUpMouseUp}/>
+                </div>
+            )}
+            {arrowDown && (
+                <div className="bottom-centered">
+                    <img src={ArrowDown} alt="Arrow Down" className="arrow" onMouseUp={onArrowDownMouseUp}/>
+                </div>
+            )}
+            {arrowLeft && (
+                <div className="left-centered">
+                    <img src={ArrowLeft} alt="Arrow Left" className="arrow" onMouseUp={onArrowLeftMouseUp}/>
+                </div>
+            )}
+            {arrowRight && (
+                <div className="right-centered">
+                    <img src={ArrowRight} alt="Arrow Right" className="arrow" onMouseUp={onArrowRightMouseUp}/>
+                </div>
+            )}
+            {children ? children : null}
         </div>
     );
 };
