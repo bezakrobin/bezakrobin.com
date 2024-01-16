@@ -1,48 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react';
-import './App.css';
-import { DataContext, DataProvider } from './contexts/DataContext';
-import Menu from './components/Menu/Menu';
-import DotsLoader from './components/Loaders/DotsLoader';
-import ListLoader from './components/Loaders/ListLoader';
-import LandingPage from './components/LandingPage/LandingPage';
-import Cursor from './components/Cursor/Cursor';
-import Showcase from "./components/Showcase/Showcase";
-
-const AppWrapper: React.FC = () => {
-  const data = useContext(DataContext);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [data]);
-
-  if (loading) {
-    return <DotsLoader />;
-  }
-
-  return (
-    <>
-      <ListLoader />
-      <LandingPage />
-      <Showcase />
-      <Menu />
-      {!data?.app.app.isPhone && (
-        <Cursor />
-      )}
-    </>
-  );
-};
+import React from 'react';
+import {Page} from "./components/Page/Page";
 
 const App: React.FC = () => {
-  return (
-    <DataProvider>
-      <AppWrapper />
-    </DataProvider>
-  );
+    return (
+        <>
+            <Page />
+        </>
+    );
 };
 
 export default App;
