@@ -2,4 +2,46 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    position: relative;
+    background-color: black;
+    color: white;
+}
+
+.top-centered, .bottom-centered, .left-centered, .right-centered {
+    position: absolute;
+    cursor: pointer;
+}
+
+.top-centered {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bottom-centered {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.left-centered {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.right-centered {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.arrow {
+    width: 30px;
+    padding: 20px;
+    transform-origin: center;
+}
+
+.arrow:active {
+    transform: scale(0.9);
 }
