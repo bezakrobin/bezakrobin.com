@@ -9,7 +9,6 @@
 
 .top-centered, .bottom-centered, .left-centered, .right-centered {
     position: absolute;
-    cursor: pointer;
 }
 
 .top-centered {
@@ -41,6 +40,7 @@
     margin: 20px;
     transform-origin: center;
     user-select: none;
+    cursor: pointer;
 }
 
 .arrow:active {

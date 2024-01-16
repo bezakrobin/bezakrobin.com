@@ -1,18 +1,28 @@
 import React from 'react';
 import {Page} from "./components/Page/Page";
-import {
-    handleArrowLeftKeyUp,
-    handleArrowLeftMouseUp,
-    handleArrowRightKeyUp,
-    handleArrowRightMouseUp
-} from "./functions/functions";
 import {PageTitle} from "./components/PageTitle/PageTitle";
 import {Spacing} from "./components/Spacing/Spacing";
 import {Menu} from "./components/Menu/Menu";
 import {useAppContext} from "./contexts/AppContext";
 
 const App: React.FC = () => {
-    const {isMobile} = useAppContext();
+    const {isMobile, setActiveIndex, selectedMenuItemIndex, items} = useAppContext();
+
+    const menuPrevious = () => {
+        if (selectedMenuItemIndex > 0) {
+            setActiveIndex(selectedMenuItemIndex - 1);
+        } else if (selectedMenuItemIndex === 0) {
+            setActiveIndex(items.length - 1);
+        }
+    };
+
+    const menuNext = () => {
+        if (selectedMenuItemIndex < items.length) {
+            setActiveIndex(selectedMenuItemIndex + 1);
+        } else if (selectedMenuItemIndex === items.length) {
+            setActiveIndex(1);
+        }
+    };
 
     return (
         <>
@@ -30,10 +40,10 @@ const App: React.FC = () => {
                             id={'desktop-menu'}
                             arrowLeft={true}
                             arrowRight={true}
-                            onArrowLeftMouseUp={handleArrowLeftMouseUp}
-                            onArrowRightMouseUp={handleArrowRightMouseUp}
-                            onArrowLeftKeyUp={handleArrowLeftKeyUp}
-                            onArrowRightKeyUp={handleArrowRightKeyUp}
+                            onArrowLeftMouseUp={menuPrevious}
+                            onArrowRightMouseUp={menuNext}
+                            onArrowLeftKeyUp={menuPrevious}
+                            onArrowRightKeyUp={menuNext}
                         >
                             <Spacing direction={"vertical"} spacing={10}/>
                             <PageTitle text={'Robin Bezak'}/>
