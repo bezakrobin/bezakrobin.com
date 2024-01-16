@@ -1,5 +1,5 @@
 body {
-  background: rgb(20, 20, 30);
+  background: black;
 }
 
 .container:first-child {
@@ -28,7 +28,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: rgb(20, 20, 30);
+  background: black;
 }
 
 .container1 {
@@ -56,20 +56,5 @@ body {
 }
 
 .darkblue {
-  background: rgb(20, 20, 30);
-}
-
-.restart {
-  border: none;
-  padding: 20px 80px;
-  background: rgb(20, 20, 30);
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 2em;
-  transition: 0.5s;
-}
-
-.restart:hover {
-  background: rgb(0, 255, 255);
+  background: black;
 }

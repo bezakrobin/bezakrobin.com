@@ -6,6 +6,7 @@ import DotsLoader from './components/Loaders/DotsLoader';
 import ListLoader from './components/Loaders/ListLoader';
 import LandingPage from './components/LandingPage/LandingPage';
 import Cursor from './components/Cursor/Cursor';
+import Showcase from "./components/Showcase/Showcase";
 
 const AppWrapper: React.FC = () => {
   const data = useContext(DataContext);
@@ -27,6 +28,7 @@ const AppWrapper: React.FC = () => {
     <>
       <ListLoader />
       <LandingPage />
+      <Showcase />
       <Menu />
       {!data?.app.app.isPhone && (
         <Cursor />
