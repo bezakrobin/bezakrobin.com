@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import './PageStyle.css';
-import ArrowUp from '../../images/ArrowKeys/ArrowUp.svg'
-import ArrowDown from '../../images/ArrowKeys/ArrowDown.svg'
-import ArrowLeft from '../../images/ArrowKeys/ArrowLeft.svg'
-import ArrowRight from '../../images/ArrowKeys/ArrowRight.svg'
+import ArrowUp from '../../images/ArrowUp.svg'
+import ArrowDown from '../../images/ArrowDown.svg'
+import ArrowLeft from '../../images/ArrowLeft.svg'
+import ArrowRight from '../../images/ArrowRight.svg'
 
 interface PageProps {
     id: string;
