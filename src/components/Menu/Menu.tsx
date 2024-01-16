@@ -29,15 +29,15 @@ export const Menu: React.FC = () => {
                 .to(".nav-container", { duration: 0.3, left: 0, ease: "expo.inOut" })
                 .from(".menu > div", { duration: 0.1, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1, delay: 0.05 })
                 .from(".socials-mobile span", { duration: 0.1, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1 })
-                .to(".menu > div", { duration: 0.5, opacity: 1, ease: "expo.out", stagger: 0.1 })
-                .to(".socials-mobile span", { duration: 0.5, opacity: 1, ease: "expo.out", stagger: 0.1 })
+                .to(".menu > div", { duration: 0.2, opacity: 1, ease: "expo.out", stagger: 0.1 })
+                .to(".socials-mobile span", { duration: 0.2, opacity: 1, ease: "expo.out", stagger: 0.1 })
         } else {
             timeline
                 .to(".nav-container", { duration: 0.3, left: 0, ease: "expo.inOut" })
                 .from(".menu > div", { duration: 0.1, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1, delay: 0.05 })
                 .from(".socials span", { duration: 0.1, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1 })
-                .to(".menu > div", { duration: 0.5, opacity: 1, ease: "expo.out", stagger: 0.1 })
-                .to(".socials span", { duration: 0.5, opacity: 1, ease: "expo.out", stagger: 0.1 })
+                .to(".menu > div", { duration: 0.2, opacity: 1, ease: "expo.out", stagger: 0.1 })
+                .to(".socials span", { duration: 0.2, opacity: 1, ease: "expo.out", stagger: 0.1 })
         }
 
         t1.current = timeline;
