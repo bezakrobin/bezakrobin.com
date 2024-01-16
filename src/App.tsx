@@ -35,7 +35,7 @@ const App: React.FC = () => {
                             onArrowLeftKeyUp={handleArrowLeftKeyUp}
                             onArrowRightKeyUp={handleArrowRightKeyUp}
                         >
-                            <Spacing direction={"vertical"} spacing={50}/>
+                            <Spacing direction={"vertical"} spacing={10}/>
                             <PageTitle text={'Robin Bezak'}/>
                             <Menu />
                         </Page>

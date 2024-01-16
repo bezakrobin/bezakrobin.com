@@ -2,25 +2,34 @@
     position: absolute;
     width: 100%;
     display: flex;
-    justify-content: center;
+    left: 0;
     top: 50%;
-    transform: translateY(50%);
+    transform: translate(50%, -50%);
 }
 
 .menu {
     position: relative;
     white-space: nowrap;
+    margin-bottom: 50px;
 }
 
 .menuItem {
     position: absolute;
     top: 0;
-    width: 100px;
-    text-align: center;
+    width: 400px;
     cursor: pointer;
+    font-family: 'Think', sans-serif;
+    font-weight: normal;
+    font-size: 40px;
+    letter-spacing: 10px;
+    user-select: none;
+    text-align: center;
+    margin-left: -200px;
 }
 
 .menuItem.active {
     z-index: 2;
     font-weight: bold;
+    font-size: 80px;
+    top: -20px;
 }
