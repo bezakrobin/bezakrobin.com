@@ -37,7 +37,6 @@ const App: React.FC = () => {
                         {/* DESKTOP */}
                         {/* Header Menu Page */}
                         <Page
-                            id={'desktop-menu'}
                             arrowLeft={true}
                             arrowRight={true}
                             onArrowLeftMouseUp={menuPrevious}

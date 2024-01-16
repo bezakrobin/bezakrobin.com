@@ -6,7 +6,6 @@ import ArrowLeft from '../../images/ArrowLeft.svg'
 import ArrowRight from '../../images/ArrowRight.svg'
 
 interface PageProps {
-    id: string;
     children?: React.ReactNode;
     arrowUp?: boolean;
     arrowDown?: boolean;
@@ -23,7 +22,6 @@ interface PageProps {
 }
 
 export const Page: React.FC<PageProps> = ({
-                                              id,
                                               children,
                                               arrowUp,
                                               arrowDown,
