@@ -27,14 +27,14 @@ export const Menu: React.FC = () => {
         if (context?.app.app.isPhone) {
             timeline
                 .to(".nav-container", { duration: 1, left: 0, ease: "expo.inOut" })
-                .from(".menu > div", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1, delay: 0.2 })
+                .from(".menu > div", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1, delay: 0.1 })
                 .from(".socials-mobile span", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1 })
                 .to(".menu > div", { duration: 0.8, opacity: 1, ease: "expo.out", stagger: 0.1 })
                 .to(".socials-mobile span", { duration: 0.8, opacity: 1, ease: "expo.out", stagger: 0.1 })
         } else {
             timeline
                 .to(".nav-container", { duration: 1, left: 0, ease: "expo.inOut" })
-                .from(".menu > div", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1, delay: 0.2 })
+                .from(".menu > div", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1, delay: 0.1 })
                 .from(".socials span", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1 })
                 .to(".menu > div", { duration: 0.8, opacity: 1, ease: "expo.out", stagger: 0.1 })
                 .to(".socials span", { duration: 0.8, opacity: 1, ease: "expo.out", stagger: 0.1 })
