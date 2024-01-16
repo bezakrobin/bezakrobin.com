@@ -3,7 +3,7 @@ import './MenuStyle.css';
 import { useAppContext } from '../../contexts/AppContext';
 
 export const Menu: React.FC = () => {
-    const { selectedMenuItemIndex, setActiveIndex, items } = useAppContext();
+    const { selectedMenuItemIndex, items } = useAppContext();
     const menuItemWidth = 400;
     const menuRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +26,6 @@ export const Menu: React.FC = () => {
                     <div
                         key={item.id}
                         className={`menuItem ${index === 1 ? 'active' : ''}`}
-                        onClick={() => setActiveIndex(items.indexOf(item))}
                         style={{
                             transform: `translateX(${index * menuItemWidth - menuItemWidth}px)`
                         }}
