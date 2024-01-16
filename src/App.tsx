@@ -4,11 +4,12 @@ import {Page} from "./components/Page/Page";
 const App: React.FC = () => {
     return (
         <>
+            {/* Header Menu Page */}
             <Page
-                arrowLeft={{label: 'arrowLeft'}}
-                arrowRight={{label: 'arrowRight'}}
+                arrowLeft={true}
+                arrowRight={true}
             >
-                children belongs here
+                {/* Children components */}
             </Page>
         </>
     );
