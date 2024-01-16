@@ -29,12 +29,12 @@ interface AppContextProviderProps {
 
 export const AppContextProvider: React.FC<AppContextProviderProps> = ({ children }) => {
     const [selectedMenuItemIndex, setSelectedMenuItemIndex] = useState<number>(0);
-    const [items, setItems] = useState<MenuItem[]>([
+    const items: MenuItem[] = [
         { id: 'home', label: 'Home' },
         { id: 'showcase', label: 'Showcase' },
         { id: 'about', label: 'About' },
         { id: 'contact', label: 'Contact' },
-    ]);
+    ];
 
     const setActiveIndex = (index: number) => {
         setSelectedMenuItemIndex(index);
