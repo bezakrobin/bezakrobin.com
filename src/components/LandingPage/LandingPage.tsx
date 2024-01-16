@@ -19,15 +19,18 @@ const LandingPage: React.FC = () => {
 
     if (context?.app.app.isPhone) {
       timeline
-          .from('.span-row-right', { duration: 0.5, right: '150%', ease: 'expo.inOut', delay: 1})
-          .from('.span-row-left', { duration: 0.5, left: '150%', ease: 'expo.inOut'})
-          .to('.span-row-right', { duration: 0.3, right: 0, ease: 'expo.inOut'})
-          .to('.span-row-left', { duration: 0.3, left: 0, ease: 'expo.inOut'})
+          .from('.span-row-right', { duration: 0.8, right: '150%', ease: 'expo.inOut'})
+          .from('.span-row-left', { duration: 0.8, left: '150%', ease: 'expo.inOut'})
+          .to('.span-row-right', { duration: 0.8, right: 0, ease: 'expo.inOut'})
+          .to('.span-row-left', { duration: 0.8, left: 0, ease: 'expo.inOut'})
     } else {
       timeline
-          .to('.row1', { duration: 0.3, right: 0, opacity: 1, ease: 'expo.inOut', delay: 1})
-          .to('.row2', { duration: 0.3, left: 0, opacity: 1, ease: 'expo.inOut'})
-          .to('.row3', { duration: 0.3, right: 0, opacity: 1, ease: 'expo.inOut'})
+          .from('.row1', { duration: 0.5, opacity: 0, ease: 'expo.inOut'})
+          .from('.row2', { duration: 0.5, opacity: 0, ease: 'expo.inOut'})
+          .from('.row3', { duration: 0.5, opacity: 0, ease: 'expo.inOut'})
+          .to('.row1', { duration: 0.5, right: 0, opacity: 1, ease: 'expo.inOut'})
+          .to('.row2', { duration: 0.5, left: 0, opacity: 1, ease: 'expo.inOut'})
+          .to('.row3', { duration: 0.5, right: 0, opacity: 1, ease: 'expo.inOut'})
     }
   }, [context?.app.app.isPhone]);
 

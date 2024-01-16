@@ -22,7 +22,7 @@ export const Menu: React.FC = () => {
     };
 
     useEffect(() => {
-        const timeline = gsap.timeline({ paused: true });
+        const timeline = gsap.timeline({ paused: false });
 
         if (context?.app.app.isPhone) {
             timeline
