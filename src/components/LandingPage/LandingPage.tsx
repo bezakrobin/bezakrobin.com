@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect } from 'react';
 import gsap from 'gsap';
 import './LandingPageStyle.css';
 import { DataContext } from '../../contexts/DataContext';
 
 const LandingPage: React.FC = () => {
-  const t1 = useRef<gsap.core.Timeline>();
-  const t2 = useRef<gsap.core.Timeline>();
   const context = useContext(DataContext);
 
   const handleMouseEnter = () => {
