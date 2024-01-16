@@ -30,7 +30,7 @@ const App: React.FC = () => {
                 (
                     <>
                         {/* MOBILE */}
-                        <p>mobile version is not available at this moment</p>
+                        <p>mobile version is not available at this moment, to visit the website use your laptop</p>
                     </>
                 ) : (
                     <>
