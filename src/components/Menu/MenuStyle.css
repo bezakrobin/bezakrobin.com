@@ -1,0 +1,22 @@
+.menu-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 60vw;
+}
+
+.menuItem {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.menuItem.active {
+    border-bottom: 2px solid #007bff;
+}

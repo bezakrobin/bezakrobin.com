@@ -29,3 +29,8 @@ export const handleArrowLeftKeyUp = () => {
 export const handleArrowRightKeyUp = () => {
     console.log('ARROW RIGHT key up');
 };
+
+export const isMobile = (): boolean => {
+    const mobileWidthThreshold = 768;
+    return window.innerWidth < mobileWidthThreshold;
+};
