@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Page} from "./components/Page/Page";
 import {
     handleArrowLeftKeyUp,
@@ -11,21 +11,8 @@ import {Spacing} from "./components/Spacing/Spacing";
 import {Menu} from "./components/Menu/Menu";
 import {useAppContext} from "./contexts/AppContext";
 
-const menuItems = [
-    {id: 'home', label: 'Home'},
-    {id: 'showcase', label: 'Showcase'},
-    {id: 'about', label: 'About'},
-    {id: 'contact', label: 'Contact'},
-];
-
 const App: React.FC = () => {
     const {isMobile} = useAppContext();
-
-    const [activeIndex, setActiveIndex] = useState<number>(0);
-
-    const handleMenuItemClick = (index: number) => {
-        setActiveIndex(index);
-    };
 
     return (
         <>
@@ -50,11 +37,7 @@ const App: React.FC = () => {
                         >
                             <Spacing direction={"vertical"} spacing={50}/>
                             <PageTitle text={'Robin Bezak'}/>
-                            <Menu
-                                items={menuItems}
-                                activeIndex={activeIndex}
-                                onMenuItemClick={handleMenuItemClick}
-                            />
+                            <Menu />
                         </Page>
                     </>
                 )}

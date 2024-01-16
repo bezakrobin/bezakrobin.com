@@ -1,26 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './MenuStyle.css';
+import { useAppContext } from '../../contexts/AppContext';
 
-interface MenuItem {
-    id: string;
-    label: string;
-}
+export const Menu: React.FC = () => {
+    const { selectedMenuItemIndex, setActiveIndex, items } = useAppContext();
+    const menuItemWidth = 100; // Fixed width of each menu item
+    const menuRef = useRef<HTMLDivElement>(null);
+    const [menuWidth, setMenuWidth] = useState(0);
 
-interface MenuProps {
-    items: MenuItem[];
-    activeIndex?: number;
-    onMenuItemClick?: (index: number) => void;
-}
+    useEffect(() => {
+        if (menuRef.current) {
+            setMenuWidth(menuRef.current.offsetWidth);
+        }
+    }, []);
 
-export const Menu: React.FC<MenuProps> = ({ items, activeIndex, onMenuItemClick }) => {
     return (
         <div className="menu-container">
-            <div className="menu">
+            <div className="menu" ref={menuRef}>
                 {items.map((item, index) => (
                     <div
                         key={item.id}
-                        className={`menuItem ${index === activeIndex ? 'active' : ''}`}
-                        onClick={() => onMenuItemClick && onMenuItemClick(index)}
+                        className={`menuItem ${index === selectedMenuItemIndex ? 'active' : ''}`}
+                        onClick={() => setActiveIndex(index)}
+                        style={{
+                            transform: `translateX(${(index - selectedMenuItemIndex) * menuItemWidth + menuWidth / 2 - menuItemWidth / 2}px)`
+                        }}
                     >
                         {item.label}
                     </div>
