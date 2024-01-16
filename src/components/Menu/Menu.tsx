@@ -22,21 +22,26 @@ export const Menu: React.FC = () => {
     };
 
     useEffect(() => {
-        // Create a new timeline
         const timeline = gsap.timeline({ paused: true });
 
-        // Add animations to the timeline
-        timeline
-            .to(".nav-container", { duration: 1, left: 0, ease: "expo.inOut" })
-            .from(".menu > div", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1 }, "-=1.8")
-            .from(".socials span", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1 }, "-=0.6")
-            .to(".menu > div", { duration: 0.8, opacity: 1, ease: "expo.out", stagger: 0.1 }, "-=0.4")
-            .to(".socials span", { duration: 0.8, opacity: 1, ease: "expo.out", stagger: 0.1 }, "-=0.4")
+        if (context?.app.app.isPhone) {
+            timeline
+                .to(".nav-container", { duration: 1, left: 0, ease: "expo.inOut" })
+                .from(".menu > div", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1 }, "-=1.8")
+                .from(".socials-mobile span", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1 }, "-=0.6")
+                .to(".menu > div", { duration: 0.8, opacity: 1, ease: "expo.out", stagger: 0.1 }, "-=0.4")
+                .to(".socials-mobile span", { duration: 0.8, opacity: 1, ease: "expo.out", stagger: 0.1 }, "-=0.4")
+        } else {
+            timeline
+                .to(".nav-container", { duration: 1, left: 0, ease: "expo.inOut" })
+                .from(".menu > div", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1 }, "-=1.8")
+                .from(".socials span", { duration: 0.8, y: 100, opacity: 0, ease: "expo.inOut", stagger: 0.1 }, "-=0.6")
+                .to(".menu > div", { duration: 0.8, opacity: 1, ease: "expo.out", stagger: 0.1 }, "-=0.4")
+                .to(".socials span", { duration: 0.8, opacity: 1, ease: "expo.out", stagger: 0.1 }, "-=0.4")
+        }
 
-        // Assign the timeline to the ref
         t1.current = timeline;
 
-        // Reverse the timeline initially
         t1.current.reverse();
     }, []);
 
