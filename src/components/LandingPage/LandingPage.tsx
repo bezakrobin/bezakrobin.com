@@ -25,9 +25,12 @@ const LandingPage: React.FC = () => {
           .to('.span-row-left', { duration: 0.8, left: 0, ease: 'expo.inOut'})
     } else {
       timeline
-          .to('.row1', { duration: 0.8, right: 0, opacity: 1, ease: 'expo.inOut'})
-          .to('.row2', { duration: 0.8, left: 0, opacity: 1, ease: 'expo.inOut'})
-          .to('.row3', { duration: 0.8, right: 0, opacity: 1, ease: 'expo.inOut'})
+          .from('.row1', { duration: 0.5, opacity: 0, ease: 'expo.inOut'})
+          .from('.row2', { duration: 0.5, opacity: 0, ease: 'expo.inOut'})
+          .from('.row3', { duration: 0.5, opacity: 0, ease: 'expo.inOut'})
+          .to('.row1', { duration: 0.5, right: 0, opacity: 1, ease: 'expo.inOut'})
+          .to('.row2', { duration: 0.5, left: 0, opacity: 1, ease: 'expo.inOut'})
+          .to('.row3', { duration: 0.5, right: 0, opacity: 1, ease: 'expo.inOut'})
     }
   }, [context?.app.app.isPhone]);
 
