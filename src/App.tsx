@@ -3,30 +3,32 @@ import {Page} from "./components/Page/Page";
 import {PageTitle} from "./components/PageTitle/PageTitle";
 import {Spacing} from "./components/Spacing/Spacing";
 import {Menu} from "./components/Menu/Menu";
-import {useAppContext} from "./contexts/AppContext";
+import {useNavigation} from "./contexts/NavigationContext";
+import {NavigationProvider} from "./contexts/NavigationProvider";
+import {getDeviceType} from "./utils/functions";
 
-const App: React.FC = () => {
-    const {isMobile, setActiveIndex, selectedMenuItemIndex, items} = useAppContext();
+const MainContent: React.FC = () => {
+    const { currentMenuItem, menuItems, setMenuItemIndex } = useNavigation();
 
     const menuPrevious = () => {
-        if (selectedMenuItemIndex > 0) {
-            setActiveIndex(selectedMenuItemIndex - 1);
-        } else if (selectedMenuItemIndex === 0) {
-            setActiveIndex(items.length - 1);
+        if (currentMenuItem > 0) {
+            setMenuItemIndex(currentMenuItem - 1);
+        } else if (currentMenuItem === 0) {
+            setMenuItemIndex(menuItems.length - 1);
         }
     };
 
     const menuNext = () => {
-        if (selectedMenuItemIndex < items.length) {
-            setActiveIndex(selectedMenuItemIndex + 1);
-        } else if (selectedMenuItemIndex === items.length) {
-            setActiveIndex(1);
+        if (currentMenuItem < menuItems.length - 1) {
+            setMenuItemIndex(currentMenuItem + 1);
+        } else if (currentMenuItem === menuItems.length - 1) {
+            setMenuItemIndex(0);
         }
     };
 
     return (
         <>
-            {isMobile ?
+            {getDeviceType() === "mobile" ?
                 (
                     <>
                         {/* MOBILE */}
@@ -51,6 +53,14 @@ const App: React.FC = () => {
                     </>
                 )}
         </>
+    );
+};
+
+const App: React.FC = () => {
+    return (
+        <NavigationProvider>
+            <MainContent />
+        </NavigationProvider>
     );
 };
 
