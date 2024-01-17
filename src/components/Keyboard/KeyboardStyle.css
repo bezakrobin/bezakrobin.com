@@ -3,6 +3,11 @@
     stroke: grey;
 }
 
+.g-key:hover {
+    fill: white;
+    filter: url(#neon-effect);
+}
+
 .cls-2 {
     font-size:7px;
     fill:#fff;
