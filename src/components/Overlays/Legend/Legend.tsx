@@ -5,9 +5,6 @@ import {Keyboard} from "../../Keyboard/Keyboard";
 export const Legend: React.FC = () => {
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
-            const keyId = `key-${event.code.toLowerCase()}`;
-            console.log(keyId);
-
             const rectKeyElement = document.getElementById(`rect-key-${event.code.toLowerCase()}`);
             const pathKeyElement = document.getElementById(`path-key-${event.code.toLowerCase()}`);
             if (rectKeyElement) {
