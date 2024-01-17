@@ -46,13 +46,13 @@ export const HintBottom: React.FC = () => {
             <img
                 src={EnterKeyImg}
                 alt="Enter Key"
-                className={isEnterPressed ? 'key-pressed' : ''}
+                className={`enter ${isEnterPressed ? 'key-pressed' : ''}`}
             />
             <span>or</span>
             <img
                 src={SpacebarImg}
                 alt="Spacebar"
-                className={isSpacebarPressed ? 'key-pressed' : ''}
+                className={`spacebar ${isSpacebarPressed ? 'key-pressed' : ''}`}
             />
             <span>to continue...</span>
         </div>

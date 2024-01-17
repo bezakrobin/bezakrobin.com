@@ -9,9 +9,16 @@
 
 .hint-bottom img {
     margin: 0 15px;
-    height: 50px;
     cursor: pointer;
     user-select: none;
+}
+
+.spacebar {
+    height: 50px;
+}
+
+.enter {
+    height: 100px;
 }
 
 .hint-bottom img:active {
