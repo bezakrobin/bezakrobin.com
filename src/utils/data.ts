@@ -1,4 +1,5 @@
-import {NavigationData} from "./types";
+import { NavigationData } from "./types";
+import { renderHomePage } from './pageRenderFunctions';
 
 export const navigationData : NavigationData = {
     pages: [
@@ -8,8 +9,13 @@ export const navigationData : NavigationData = {
             type: 'desktop',
             navigation: {
                 left: true,
-                right: true
-            }
+                right: true,
+            },
+            navigationFunctions: {
+                left: 'menuPrevious',
+                right: 'menuNext',
+            },
+            render: renderHomePage
         },
         {
             name: 'showcase',
@@ -17,6 +23,10 @@ export const navigationData : NavigationData = {
             navigation: {
                 left: true,
                 right: true
+            },
+            navigationFunctions: {
+                left: '',
+                right: '',
             }
         },
         {
@@ -25,6 +35,10 @@ export const navigationData : NavigationData = {
             navigation: {
                 left: true,
                 right: true
+            },
+            navigationFunctions: {
+                left: '',
+                right: '',
             }
         },
         {
@@ -33,6 +47,10 @@ export const navigationData : NavigationData = {
             navigation: {
                 left: true,
                 right: true
+            },
+            navigationFunctions: {
+                left: '',
+                right: '',
             }
         }
     ]

@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 import { Page } from '../utils/types';
-import { getMenuItems } from "../utils/functions";
+import {getDefaultPage, getMenuItems} from "../utils/functions";
 import { navigationData } from "../utils/data";
 
 interface NavigationContextProps {
@@ -12,7 +12,7 @@ interface NavigationContextProps {
 }
 
 const defaultState: NavigationContextProps = {
-    currentPage: null,
+    currentPage: getDefaultPage(navigationData.pages),
     setCurrentPage: () => {},
     currentMenuItem: 0,
     setMenuItemIndex: () => {},

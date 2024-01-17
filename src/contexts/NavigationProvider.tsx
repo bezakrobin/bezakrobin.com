@@ -1,14 +1,14 @@
-import React, { ReactNode, useState } from 'react';
-import { NavigationContext } from './NavigationContext';
-import { Page } from '../utils/types';
-import { navigationData } from "../utils/data";
-import { getMenuItems } from "../utils/functions";
+import React, {ReactNode, useState} from 'react';
+import {NavigationContext} from './NavigationContext';
+import {Page} from '../utils/types';
+import {navigationData} from "../utils/data";
+import {getMenuItems} from "../utils/functions";
 
 interface NavigationProviderProps {
     children: ReactNode;
 }
 
-export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children }) => {
+export const NavigationProvider: React.FC<NavigationProviderProps> = ({children}) => {
     const [currentPage, setCurrentPage] = useState<Page | null>(null);
     const [currentMenuItem, setMenuItemIndex] = useState<number>(0);
 

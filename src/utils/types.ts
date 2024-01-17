@@ -1,8 +1,12 @@
+import React from "react";
+
 export interface Page {
     name: string;
     isDefaultPage?: boolean;
     type: string;
     navigation: NavigationArrows;
+    navigationFunctions: NavigationFunctions;
+    render?: () => React.ReactNode;
 }
 
 export interface NavigationData {
@@ -14,4 +18,11 @@ export interface NavigationArrows {
     down?: boolean;
     left?: boolean;
     right?: boolean;
+}
+
+export interface NavigationFunctions {
+    up?: string;
+    down?: string;
+    left?: string;
+    right?: string;
 }
