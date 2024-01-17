@@ -9,4 +9,5 @@
 
 .alert-bottom span {
     font-family: 'Courier New', Courier, monospace;
+    user-select: none;
 }
