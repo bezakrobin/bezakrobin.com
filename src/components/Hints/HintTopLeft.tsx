@@ -39,7 +39,6 @@ export const HintTopLeft: React.FC = () => {
                 className={isEscapePressed ? 'escape-pressed' : ''}
                 onClick={() => toggleShowLegend(setShowLegend, showLegend)}
             />
-            <span>Legend...</span>
         </div>
     );
 };

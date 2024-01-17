@@ -44,7 +44,8 @@ const MainContent: React.FC = () => {
                     <>
                         {/* DESKTOP */}
 
-                        <HintTopLeft />
+                        {/* Escape Button for Legend Overlay */}
+                        {!showLegend ? <HintTopLeft /> : null}
 
                         {/* Legend Overlay */}
                         {showLegend && <Legend />}
