@@ -9,8 +9,15 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .highlight {
     fill: #ffcc00;
+}
+
+.legend img {
+    max-width: 70%;
 }
