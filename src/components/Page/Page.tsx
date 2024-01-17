@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './PageStyle.css';
 import ArrowUp from '../../images/ArrowUp.svg'
 import ArrowDown from '../../images/ArrowDown.svg'
 import ArrowLeft from '../../images/ArrowLeft.svg'
 import ArrowRight from '../../images/ArrowRight.svg'
+import {NavigationContext} from "../../contexts/NavigationContext";
 
 interface PageProps {
     render?: () => React.ReactNode;
@@ -41,8 +42,11 @@ export const Page: React.FC<PageProps> = ({
     const [isArrowLeftPressed, setIsArrowLeftPressed] = useState(false);
     const [isArrowRightPressed, setIsArrowRightPressed] = useState(false);
 
+    const { showLegend } = useContext(NavigationContext);
+
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
+            if (showLegend) return;
             switch (event.key) {
                 case 'ArrowUp':
                     setIsArrowUpPressed(true);
@@ -60,6 +64,7 @@ export const Page: React.FC<PageProps> = ({
         };
 
         const handleKeyUp = (event: KeyboardEvent) => {
+            if (showLegend) return;
             if (event.key === 'ArrowUp' && onArrowUpKeyUp) {
                 setIsArrowUpPressed(false);
                 onArrowUpKeyUp();

@@ -1,14 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import EnterKeyImg from '../../images/Enter.svg';
 import SpacebarImg from '../../images/Spacebar.svg';
 import './HintStyle.css';
+import {NavigationContext} from "../../contexts/NavigationContext";
 
 export const HintBottom: React.FC = () => {
     const [isEnterPressed, setIsEnterPressed] = useState(false);
     const [isSpacebarPressed, setIsSpacebarPressed] = useState(false);
 
+    const { showLegend } = useContext(NavigationContext);
+
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
+            if (showLegend) return;
             if (event.key === 'Enter') {
                 setIsEnterPressed(true);
             }
@@ -18,6 +22,7 @@ export const HintBottom: React.FC = () => {
         };
 
         const handleKeyUp = (event: KeyboardEvent) => {
+            if (showLegend) return;
             if (event.key === 'Enter') {
                 setIsEnterPressed(false);
             }
@@ -33,7 +38,7 @@ export const HintBottom: React.FC = () => {
             window.removeEventListener('keydown', handleKeyDown);
             window.removeEventListener('keyup', handleKeyUp);
         };
-    }, []);
+    }, [showLegend]);
 
     return (
         <div className="hint-bottom">
