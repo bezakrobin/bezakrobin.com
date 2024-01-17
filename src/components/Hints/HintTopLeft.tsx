@@ -29,7 +29,7 @@ export const HintTopLeft: React.FC = () => {
             window.removeEventListener('keydown', handleKeyDown);
             window.removeEventListener('keyup', handleKeyUp);
         };
-    }, [setShowLegend, showLegend]);
+    }, [setShowLegend, showLegend, isEscapePressed]);
 
     return (
         <div className="hint-top-left">
