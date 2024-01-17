@@ -1,8 +1,11 @@
 import React, {useEffect} from 'react';
 import './LegendStyle.css';
 import {Keyboard} from "../../Keyboard/Keyboard";
+import {useNavigation} from "../../../contexts/NavigationContext";
 
 export const Legend: React.FC = () => {
+    const {showLegend, setShowLegend} = useNavigation();
+
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             const rectKeyElement = document.getElementById(`rect-key-${event.code.toLowerCase()}`);
@@ -24,6 +27,10 @@ export const Legend: React.FC = () => {
             if (pathKeyElement) {
                 pathKeyElement.classList.remove('highlight');
             }
+            if (event.code === "Escape") {
+                setShowLegend(!showLegend);
+                event.preventDefault();
+            }
         };
 
         window.addEventListener('keydown', handleKeyDown);
@@ -33,7 +40,7 @@ export const Legend: React.FC = () => {
             window.removeEventListener('keydown', handleKeyDown);
             window.removeEventListener('keyup', handleKeyUp);
         };
-    }, []);
+    }, [setShowLegend, showLegend]);
 
     return (
         <div className="legend">
