@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 844.26 237.4">
     <defs>
-        <style>.cls-1{fill:none;stroke:#fff;}.cls-2{font-size:7px;fill:#fff;font-family:CourierNewPS-BoldMT, Courier
+        <style>.cls-2{fill:none;stroke:#fff;}.cls-2{font-size:7px;fill:#fff;font-family:CourierNewPS-BoldMT, Courier
             New;font-weight:700;}
-        </style>
+        </style> <!-- .cls-2 change back to .cls-1 -->
     </defs>
     <g id="Layer_2">
         <g id="Layer_1-2">
-            <path class="cls-1"
+            <path stroke="red" class="cls-1"
                   d="M4.37,165.2h34.9a3.88,3.88,0,0,1,3.88,3.88v27.13a3.88,3.88,0,0,1-3.88,3.88H4.38A3.88,3.88,0,0,1,.5,196.21V169.08A3.87,3.87,0,0,1,4.37,165.2Z"/>
             <path class="cls-1"
                   d="M9.22,170h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.87,3.87,0,0,1-3.87,3.87H9.22a3.88,3.88,0,0,1-3.88-3.88V173.92A3.88,3.88,0,0,1,9.22,170Z"/>
