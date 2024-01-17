@@ -34,19 +34,13 @@
 
 .hint-top-left img {
     margin: 20px;
-    height: 30px;
+    height: 50px;
     cursor: pointer;
     user-select: none;
 }
 
 .hint-top-left img:active {
     transform: scale(0.9);
-}
-
-.hint-top-left span {
-    font-family: 'Courier New', Courier, monospace;
-    user-select: none;
-    color: white;
 }
 
 .hint-top-left img.escape-pressed {
