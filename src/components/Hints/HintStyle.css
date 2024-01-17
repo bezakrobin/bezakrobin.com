@@ -1,0 +1,21 @@
+.hint-bottom {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 15vh;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.hint-bottom img {
+    margin: 0 15px;
+    height: 50px;
+    cursor: pointer;
+}
+.hint-bottom img:active {
+    transform: scale(0.9);
+}
+
+.hint-bottom span {
+    font-family: 'Courier New', Courier, monospace;
+}
