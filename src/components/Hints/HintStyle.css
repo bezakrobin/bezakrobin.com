@@ -29,6 +29,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 101;
 }
 
 .hint-top-left img {
@@ -45,6 +46,7 @@
 .hint-top-left span {
     font-family: 'Courier New', Courier, monospace;
     user-select: none;
+    color: white;
 }
 
 .hint-top-left img.escape-pressed {
