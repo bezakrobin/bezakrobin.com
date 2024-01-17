@@ -87,7 +87,7 @@ export const Page: React.FC<PageProps> = ({
             window.removeEventListener('keydown', handleKeyDown);
             window.removeEventListener('keyup', handleKeyUp);
         };
-    }, [onArrowUpKeyUp, onArrowDownKeyUp, onArrowLeftKeyUp, onArrowRightKeyUp]);
+    }, [onArrowUpKeyUp, onArrowDownKeyUp, onArrowLeftKeyUp, onArrowRightKeyUp, showLegend]);
 
     return (
         <div className="page">
