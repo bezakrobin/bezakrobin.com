@@ -5,6 +5,7 @@ import {NavigationProvider} from "./contexts/NavigationProvider";
 import {getDefaultPage, getDeviceType, menuNext, menuPrevious} from "./utils/functions";
 import {navigationData} from "./utils/data";
 import {Legend} from "./components/Overlays/Legend/Legend";
+import {HintTopLeft} from "./components/Hints/HintTopLeft";
 
 const MainContent: React.FC = () => {
     const {currentMenuItem, menuItems, setMenuItemIndex, currentPage, setCurrentPage, showLegend} = useNavigation();
@@ -42,6 +43,8 @@ const MainContent: React.FC = () => {
                 ) : (
                     <>
                         {/* DESKTOP */}
+
+                        <HintTopLeft />
 
                         {/* Legend Overlay */}
                         {showLegend && <Legend />}

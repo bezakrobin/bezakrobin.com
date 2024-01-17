@@ -4,10 +4,8 @@ import {PageTitle} from "../components/PageTitle/PageTitle";
 import {Spacing} from "../components/Spacing/Spacing";
 import {HintBottom} from "../components/Hints/HintBottom";
 import {AlertBottom} from "../components/Alerts/AlertBottom";
-import {HintTopLeft} from "../components/Hints/HintTopLeft";
 
 const showHintBottom = true;
-const showHintTopLeft = true;
 const showAlertBottom = false;
 
 export const renderHomePage = (): React.ReactNode => (
@@ -15,7 +13,6 @@ export const renderHomePage = (): React.ReactNode => (
         <Spacing key="spacing" direction={"vertical"} spacing={10}/>
         <PageTitle key="pageTitle" text={'Robin Bezak'}/>
         <Menu key="menu" />
-        {showHintTopLeft && <HintTopLeft />}
         {showHintBottom && <HintBottom />}
         {showAlertBottom && <AlertBottom text={"You are already on this page . . ."} />}
     </>
