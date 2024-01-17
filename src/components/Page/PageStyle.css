@@ -46,3 +46,7 @@
 .arrow:active {
     transform: scale(0.9);
 }
+
+.arrow.pressed {
+    transform: scale(0.9);
+}
