@@ -15,13 +15,26 @@ export const Keyboard: React.FC<{ onEscapeClick: () => void }> = ({ onEscapeClic
                         <feMergeNode in="SourceGraphic"></feMergeNode>
                     </feMerge>
                 </filter>
+                <filter id="neon-effect-other-buttons" x="-100%" y="-100%" width="300%" height="300%">
+                    <feFlood result="flood" floodColor="blue" floodOpacity="10"></feFlood>
+                    <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
+                    <feMorphology in="mask" result="dilated" operator="dilate" radius="2"></feMorphology>
+                    <feGaussianBlur in="dilated" result="blurred" stdDeviation="5"></feGaussianBlur>
+                    <feMerge>
+                        <feMergeNode in="blurred"></feMergeNode>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                    </feMerge>
+                </filter>
             </defs>
             <g id="Layer_2">
                 <g id="Layer_1-2" fill="grey">
-                    <path className="cls-1"
-                          d="M4.37,165.2h34.9a3.88,3.88,0,0,1,3.88,3.88v27.13a3.88,3.88,0,0,1-3.88,3.88H4.38A3.88,3.88,0,0,1,.5,196.21V169.08A3.87,3.87,0,0,1,4.37,165.2Z"/>
-                    <path className="cls-1"
-                          d="M9.22,170h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.87,3.87,0,0,1-3.87,3.87H9.22a3.88,3.88,0,0,1-3.88-3.88V173.92A3.88,3.88,0,0,1,9.22,170Z"/>
+                    <g className='g-key'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="0" y="165" width="43" height="35" fill="transparent" />
+                        <path className="cls-1"
+                              d="M4.37,165.2h34.9a3.88,3.88,0,0,1,3.88,3.88v27.13a3.88,3.88,0,0,1-3.88,3.88H4.38A3.88,3.88,0,0,1,.5,196.21V169.08A3.87,3.87,0,0,1,4.37,165.2Z"/>
+                        <path className="cls-1"
+                              d="M9.22,170h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.87,3.87,0,0,1-3.87,3.87H9.22a3.88,3.88,0,0,1-3.88-3.88V173.92A3.88,3.88,0,0,1,9.22,170Z"/>
+                    </g>
                     <rect className="cls-1" x="45.09" y="202.02" width="42.65" height="34.88" rx="3.88"/>
                     <path className="cls-1"
                           d="M53.81,206.86H79a3.88,3.88,0,0,1,3.88,3.88v17.44A3.88,3.88,0,0,1,79,232.05H53.81a3.87,3.87,0,0,1-3.87-3.87V210.74A3.88,3.88,0,0,1,53.81,206.86Z"/>

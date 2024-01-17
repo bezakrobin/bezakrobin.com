@@ -5,7 +5,7 @@
 
 .g-key:hover {
     fill: white;
-    filter: url(#neon-effect);
+    filter: url(#neon-effect-other-buttons);
 }
 
 .cls-2 {
