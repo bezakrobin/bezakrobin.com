@@ -3,7 +3,7 @@ import './KeyboardStyle.css';
 
 export const Keyboard: React.FC = () => {
     return (
-        <svg className="keyboard" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 844.26 237.4">
+        <svg className="keyboard" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -20 900 300">
             <defs>
                 <filter id="neon-effect" x="-100%" y="-100%" width="300%" height="300%">
                 <feFlood result="flood" floodColor="red" floodOpacity="1"></feFlood>
