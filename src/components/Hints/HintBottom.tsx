@@ -10,7 +10,7 @@ export const HintBottom: React.FC = () => {
             <img src={EnterKeyImg} alt="Enter Key" />
             <span>or</span>
             <img src={SpacebarImg} alt="Spacebar" />
-            <span>to continue . . .</span>
+            <span>to continue...</span>
         </div>
     );
 };

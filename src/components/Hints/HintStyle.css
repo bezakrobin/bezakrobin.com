@@ -13,11 +13,36 @@
     cursor: pointer;
     user-select: none;
 }
+
 .hint-bottom img:active {
     transform: scale(0.9);
 }
 
 .hint-bottom span {
+    font-family: 'Courier New', Courier, monospace;
+    user-select: none;
+}
+
+.hint-top-left {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hint-top-left img {
+    margin: 20px;
+    height: 30px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.hint-top-left img:active {
+    transform: scale(0.9);
+}
+
+.hint-top-left span {
     font-family: 'Courier New', Courier, monospace;
     user-select: none;
 }
