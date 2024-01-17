@@ -1,0 +1,12 @@
+.alert-bottom {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 17vh;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.alert-bottom span {
+    font-family: 'Courier New', Courier, monospace;
+}
