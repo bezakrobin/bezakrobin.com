@@ -319,8 +319,8 @@ export const Keyboard: React.FC = () => {
                     <path className="cls-1"
                           d="M574.3,54.76h27.14a3.88,3.88,0,0,1,3.88,3.88V85.76a3.87,3.87,0,0,1-3.87,3.87H574.3a3.88,3.88,0,0,1-3.88-3.88V58.63A3.88,3.88,0,0,1,574.3,54.76Z"/>
                     <g>
-                        <rect id="rect-key- " className="cls-1 key" x="134.26" y="202.02" width="238.44" height="34.88" rx="3.88"/>
-                        <path id="path-key- " className="cls-1 key"
+                        <rect id="rect-key-space" className="cls-1 key" x="134.26" y="202.02" width="238.44" height="34.88" rx="3.88"/>
+                        <path id="path-key-space" className="cls-1 key"
                               d="M143,206.86H364a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88H143a3.88,3.88,0,0,1-3.88-3.88V210.74A3.87,3.87,0,0,1,143,206.86Z"/>
                         <text className="cls-2" transform="translate(234.09 215.73)">spacebar</text>
                     </g>
@@ -331,9 +331,9 @@ export const Keyboard: React.FC = () => {
                         <text className="cls-2" transform="translate(585.28 215.73)">&lt;</text>
                     </g>
                     <g id="Enter">
-                        <path className="cls-1 key"
+                        <path id="rect-key-enter" className="cls-1 key"
                               d="M551,159.39V95.45a3.72,3.72,0,0,0-3.87-3.88H500.64a3.73,3.73,0,0,0-3.88,3.88v27.13a3.73,3.73,0,0,0,3.88,3.87h1.94a3.73,3.73,0,0,1,3.88,3.88v29.06a3.72,3.72,0,0,0,3.87,3.88h36.84A3.72,3.72,0,0,0,551,159.39Z"/>
-                        <path className="cls-1 key"
+                        <path id="path-key-enter" className="cls-1 key"
                               d="M542.32,96.42H505.49a3.72,3.72,0,0,0-3.88,3.87v17.44a3.73,3.73,0,0,0,3.88,3.88h1.94a3.71,3.71,0,0,1,3.87,3.87v29.07a3.72,3.72,0,0,0,3.88,3.87h27.14a3.72,3.72,0,0,0,3.88-3.87V100.29A3.72,3.72,0,0,0,542.32,96.42Z"/>
                         <text className="cls-2" transform="translate(514.21 105.3)">enter</text>
                     </g>
@@ -345,9 +345,9 @@ export const Keyboard: React.FC = () => {
                         <text className="cls-2" transform="translate(11.34 14.22)">esc</text>
                     </g>
                     <g id="NumPadEnter">
-                        <path className="cls-1 key"
+                        <path id="path-key-numpadenter" className="cls-1 key"
                               d="M817.59,170H835a3.87,3.87,0,0,1,3.87,3.87v54.25a3.88,3.88,0,0,1-3.88,3.88H817.59a3.87,3.87,0,0,1-3.87-3.87V173.93A3.88,3.88,0,0,1,817.59,170Z"/>
-                        <rect className="cls-1 key" x="808.87" y="165.2" width="34.89" height="71.7" rx="3.88"/>
+                        <rect id="rect-key-numpadenter" className="cls-1 key" x="808.87" y="165.2" width="34.89" height="71.7" rx="3.88"/>
                         <text className="cls-2" transform="translate(815.82 202.82)">enter</text>
                     </g>
                     <g id="ArrowRight">
