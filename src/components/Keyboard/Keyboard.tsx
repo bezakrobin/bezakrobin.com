@@ -1,7 +1,7 @@
 import React from "react";
 import './KeyboardStyle.css';
 
-export const Keyboard: React.FC = () => {
+export const Keyboard: React.FC<{ onEscapeClick: () => void }> = ({ onEscapeClick }) => {
     return (
         <svg className="keyboard" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -20 900 300">
             <defs>
@@ -318,52 +318,61 @@ export const Keyboard: React.FC = () => {
                     <rect className="cls-1" x="575.27" y="59.6" width="25.2" height="25.19" rx="3.88"/>
                     <path className="cls-1"
                           d="M574.3,54.76h27.14a3.88,3.88,0,0,1,3.88,3.88V85.76a3.87,3.87,0,0,1-3.87,3.87H574.3a3.88,3.88,0,0,1-3.88-3.88V58.63A3.88,3.88,0,0,1,574.3,54.76Z"/>
-                    <g>
+                    <g className='key-cursor'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="135" y="202" width="238" height="35" fill="transparent" />
                         <rect id="rect-key-space" className="cls-1 key" x="134.26" y="202.02" width="238.44" height="34.88" rx="3.88"/>
                         <path id="path-key-space" className="cls-1 key"
                               d="M143,206.86H364a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88H143a3.88,3.88,0,0,1-3.88-3.88V210.74A3.87,3.87,0,0,1,143,206.86Z"/>
                         <text className="cls-2" transform="translate(234.09 215.73)">spacebar</text>
                     </g>
-                    <g id="ArrowLeft">
+                    <g id="ArrowLeft" className='key-cursor'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="570" y="202" width="35" height="35" fill="transparent" />
                         <rect id="rect-key-arrowleft" className="cls-1 key" x="570.43" y="202.02" width="34.89" height="34.88" rx="3.88"/>
                         <path id="path-key-arrowleft" className="cls-1 key"
                               d="M579.15,206.86H596.6a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88H579.15a3.87,3.87,0,0,1-3.87-3.87V210.74A3.88,3.88,0,0,1,579.15,206.86Z"/>
                         <text className="cls-2" transform="translate(585.28 215.73)">&lt;</text>
                     </g>
-                    <g id="Enter">
+                    <g id="Enter" className='key-cursor'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="495" y="90" width="55" height="35" fill="transparent" />
+                        <rect id="hitbox-key-escape" className="hitbox" x="505" y="125" width="45" height="38" fill="transparent" />
                         <path id="rect-key-enter" className="cls-1 key"
                               d="M551,159.39V95.45a3.72,3.72,0,0,0-3.87-3.88H500.64a3.73,3.73,0,0,0-3.88,3.88v27.13a3.73,3.73,0,0,0,3.88,3.87h1.94a3.73,3.73,0,0,1,3.88,3.88v29.06a3.72,3.72,0,0,0,3.87,3.88h36.84A3.72,3.72,0,0,0,551,159.39Z"/>
                         <path id="path-key-enter" className="cls-1 key"
                               d="M542.32,96.42H505.49a3.72,3.72,0,0,0-3.88,3.87v17.44a3.73,3.73,0,0,0,3.88,3.88h1.94a3.71,3.71,0,0,1,3.87,3.87v29.07a3.72,3.72,0,0,0,3.88,3.87h27.14a3.72,3.72,0,0,0,3.88-3.87V100.29A3.72,3.72,0,0,0,542.32,96.42Z"/>
                         <text className="cls-2" transform="translate(514.21 105.3)">enter</text>
                     </g>
-                    <g>
+                    <g onClick={onEscapeClick} className='key-cursor'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="0" y="0" width="35" height="35" fill="transparent" />
                         <path id="rect-key-escape" className="cls-1 key"
                               d="M4.37.5H31.52a3.88,3.88,0,0,1,3.88,3.88V31.5a3.87,3.87,0,0,1-3.87,3.87H4.38A3.88,3.88,0,0,1,.5,31.5V4.37A3.87,3.87,0,0,1,4.37.5Z"/>
                         <path id="path-key-escape" className="cls-1 key"
                               d="M9.22,5.34H26.67a3.88,3.88,0,0,1,3.88,3.88V26.66a3.88,3.88,0,0,1-3.88,3.88H9.22a3.87,3.87,0,0,1-3.87-3.87V9.22A3.88,3.88,0,0,1,9.22,5.34Z"/>
                         <text className="cls-2" transform="translate(11.34 14.22)">esc</text>
                     </g>
-                    <g id="NumPadEnter">
+                    <g id="NumPadEnter" className='key-cursor'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="810" y="165" width="35" height="72" fill="transparent" />
                         <path id="path-key-numpadenter" className="cls-1 key"
                               d="M817.59,170H835a3.87,3.87,0,0,1,3.87,3.87v54.25a3.88,3.88,0,0,1-3.88,3.88H817.59a3.87,3.87,0,0,1-3.87-3.87V173.93A3.88,3.88,0,0,1,817.59,170Z"/>
                         <rect id="rect-key-numpadenter" className="cls-1 key" x="808.87" y="165.2" width="34.89" height="71.7" rx="3.88"/>
                         <text className="cls-2" transform="translate(815.82 202.82)">enter</text>
                     </g>
-                    <g id="ArrowRight">
+                    <g id="ArrowRight" className='key-cursor'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="645" y="202" width="35" height="35" fill="transparent" />
                         <rect id="rect-key-arrowright" className="cls-1 key" x="644.09" y="202.02" width="34.89" height="34.88" rx="3.88"/>
                         <path id="path-key-arrowright" className="cls-1 key"
                               d="M652.82,206.86h17.45a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88H652.81a3.87,3.87,0,0,1-3.87-3.87V210.74A3.88,3.88,0,0,1,652.82,206.86Z"/>
                         <text className="cls-2" transform="matrix(-1, 0, 0, 1, 663.44, 215.73)">&lt;</text>
                     </g>
-                    <g id="ArrowUp">
+                    <g id="ArrowUp" className='key-cursor'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="608" y="165" width="35" height="35" fill="transparent" />
                         <path id="rect-key-arrowup" className="cls-1 key"
                               d="M616,170h17.45a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88H616a3.87,3.87,0,0,1-3.87-3.87V173.93A3.88,3.88,0,0,1,616,170Z"/>
                         <path id="path-key-arrowup" className="cls-1 key"
                               d="M611.14,165.2h27.14a3.88,3.88,0,0,1,3.88,3.88v27.13a3.88,3.88,0,0,1-3.88,3.88H611.13a3.87,3.87,0,0,1-3.87-3.87V169.08A3.88,3.88,0,0,1,611.14,165.2Z"/>
                         <text className="cls-2" transform="matrix(0, 1, 1, 0, 626.65, 175.04)">&lt;</text>
                     </g>
-                    <g id="ArrowDown">
+                    <g id="ArrowDown" className='key-cursor'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="608" y="202" width="35" height="35" fill="transparent" />
                         <path id="rect-key-arrowdown" className="cls-1 key"
                               d="M616,206.86h17.45a3.87,3.87,0,0,1,3.87,3.87v17.44a3.88,3.88,0,0,1-3.88,3.88H616a3.88,3.88,0,0,1-3.88-3.88V210.74A3.88,3.88,0,0,1,616,206.86Z"/>
                         <rect id="path-key-arrowdown" className="cls-1 key" x="607.26" y="202.02" width="34.89" height="34.88" rx="3.88"/>

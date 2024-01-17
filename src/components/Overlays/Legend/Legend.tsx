@@ -6,6 +6,10 @@ import {useNavigation} from "../../../contexts/NavigationContext";
 export const Legend: React.FC = () => {
     const {showLegend, setShowLegend} = useNavigation();
 
+    const handleEscapeClick = () => {
+        setShowLegend(!showLegend);
+    };
+
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             const rectKeyElement = document.getElementById(`rect-key-${event.code.toLowerCase()}`);
@@ -44,7 +48,7 @@ export const Legend: React.FC = () => {
 
     return (
         <div className="legend">
-            <Keyboard />
+            <Keyboard onEscapeClick={handleEscapeClick} />
         </div>
     );
 };

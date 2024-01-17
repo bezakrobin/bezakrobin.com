@@ -19,6 +19,15 @@
     stroke: #fff;
 }
 
+.key-cursor {
+    cursor: pointer;
+}
+
+.key-cursor:hover {
+    fill: white;
+    filter: url(#neon-effect);
+}
+
 .keyboard {
     width: 70%;
     height: 70vh;
