@@ -35,24 +35,44 @@ export const Keyboard: React.FC<{ onEscapeClick: () => void }> = ({ onEscapeClic
                         <path className="cls-1"
                               d="M9.22,170h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.87,3.87,0,0,1-3.87,3.87H9.22a3.88,3.88,0,0,1-3.88-3.88V173.92A3.88,3.88,0,0,1,9.22,170Z"/>
                     </g>
-                    <rect className="cls-1" x="45.09" y="202.02" width="42.65" height="34.88" rx="3.88"/>
-                    <path className="cls-1"
-                          d="M53.81,206.86H79a3.88,3.88,0,0,1,3.88,3.88v17.44A3.88,3.88,0,0,1,79,232.05H53.81a3.87,3.87,0,0,1-3.87-3.87V210.74A3.88,3.88,0,0,1,53.81,206.86Z"/>
-                    <rect className="cls-1" x="89.67" y="202.02" width="42.65" height="34.88" rx="3.88"/>
-                    <path className="cls-1"
-                          d="M98.39,206.86h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.87,3.87,0,0,1-3.87,3.87H98.4a3.88,3.88,0,0,1-3.88-3.88V210.74A3.88,3.88,0,0,1,98.39,206.86Z"/>
-                    <rect className="cls-1" x="374.64" y="202.02" width="42.65" height="34.88" rx="3.88"/>
-                    <path className="cls-1"
-                          d="M383.36,206.86h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88h-25.2a3.88,3.88,0,0,1-3.88-3.88V210.74A3.87,3.87,0,0,1,383.36,206.86Z"/>
-                    <rect className="cls-1" x="419.22" y="202.02" width="42.65" height="34.88" rx="3.88"/>
-                    <path className="cls-1"
-                          d="M427.95,206.86h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88h-25.2a3.87,3.87,0,0,1-3.87-3.87V210.74A3.88,3.88,0,0,1,427.95,206.86Z"/>
-                    <rect className="cls-1" x="463.81" y="202.02" width="42.65" height="34.88" rx="3.88"/>
-                    <path className="cls-1"
-                          d="M472.53,206.86h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88h-25.2a3.87,3.87,0,0,1-3.87-3.87V210.74A3.88,3.88,0,0,1,472.53,206.86Z"/>
-                    <path className="cls-1"
-                          d="M517.12,206.86h25.2a3.87,3.87,0,0,1,3.87,3.87v17.44a3.88,3.88,0,0,1-3.88,3.88h-25.2a3.88,3.88,0,0,1-3.88-3.88V210.74A3.88,3.88,0,0,1,517.12,206.86Z"/>
-                    <rect className="cls-1" x="508.4" y="202.02" width="42.65" height="34.88" rx="3.88"/>
+                    <g className='g-key'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="45" y="202" width="43" height="35" fill="transparent" />
+                        <rect className="cls-1" x="45.09" y="202.02" width="42.65" height="34.88" rx="3.88"/>
+                        <path className="cls-1"
+                              d="M53.81,206.86H79a3.88,3.88,0,0,1,3.88,3.88v17.44A3.88,3.88,0,0,1,79,232.05H53.81a3.87,3.87,0,0,1-3.87-3.87V210.74A3.88,3.88,0,0,1,53.81,206.86Z"/>
+                    </g>
+                    <g className='g-key'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="90" y="202" width="43" height="35" fill="transparent" />
+                        <rect className="cls-1" x="89.67" y="202.02" width="42.65" height="34.88" rx="3.88"/>
+                        <path className="cls-1"
+                              d="M98.39,206.86h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.87,3.87,0,0,1-3.87,3.87H98.4a3.88,3.88,0,0,1-3.88-3.88V210.74A3.88,3.88,0,0,1,98.39,206.86Z"/>
+                    </g>
+                    <g className='g-key'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="375" y="202" width="43" height="35" fill="transparent" />
+                        <rect className="cls-1" x="374.64" y="202.02" width="42.65" height="34.88" rx="3.88"/>
+                        <path className="cls-1"
+                              d="M383.36,206.86h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88h-25.2a3.88,3.88,0,0,1-3.88-3.88V210.74A3.87,3.87,0,0,1,383.36,206.86Z"/>
+                    </g>
+                    <g className='g-key'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="420" y="202" width="43" height="35" fill="transparent" />
+                        <rect className="cls-1" x="419.22" y="202.02" width="42.65" height="34.88" rx="3.88"/>
+                        <path className="cls-1"
+                              d="M427.95,206.86h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88h-25.2a3.87,3.87,0,0,1-3.87-3.87V210.74A3.88,3.88,0,0,1,427.95,206.86Z"/>
+                    </g>
+                    <g className='g-key'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="463" y="202" width="43" height="35" fill="transparent" />
+                        <rect className="cls-1" x="463.81" y="202.02" width="42.65" height="34.88" rx="3.88"/>
+                        <path className="cls-1"
+                              d="M472.53,206.86h25.2a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88h-25.2a3.87,3.87,0,0,1-3.87-3.87V210.74A3.88,3.88,0,0,1,472.53,206.86Z"/>
+                    </g>
+                    <g className='g-key'>
+                        <rect id="hitbox-key-escape" className="hitbox" x="507" y="202" width="43" height="35" fill="transparent" />
+                        <path className="cls-1"
+                              d="M517.12,206.86h25.2a3.87,3.87,0,0,1,3.87,3.87v17.44a3.88,3.88,0,0,1-3.88,3.88h-25.2a3.88,3.88,0,0,1-3.88-3.88V210.74A3.88,3.88,0,0,1,517.12,206.86Z"/>
+                        <rect className="cls-1" x="508.4" y="202.02" width="42.65" height="34.88" rx="3.88"/>
+                    </g>
+
+
                     <path className="cls-1"
                           d="M90.64,170h17.45a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88H90.64a3.87,3.87,0,0,1-3.87-3.87V173.93A3.88,3.88,0,0,1,90.64,170Z"/>
                     <path className="cls-1"

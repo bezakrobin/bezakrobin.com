@@ -4,7 +4,7 @@
 }
 
 .g-key:hover {
-    fill: white;
+    fill: white !important;
     filter: url(#neon-effect-other-buttons);
 }
 
