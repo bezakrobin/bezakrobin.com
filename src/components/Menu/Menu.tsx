@@ -1,17 +1,18 @@
 import React, { useRef } from 'react';
 import './MenuStyle.css';
-import { useAppContext } from '../../contexts/AppContext';
+import {useNavigation} from "../../contexts/NavigationContext";
+import {capitalizeFirstLetter} from "../../utils/functions";
 
 export const Menu: React.FC = () => {
-    const { selectedMenuItemIndex, items } = useAppContext();
+    const { currentMenuItem, menuItems } = useNavigation();
     const menuItemWidth = 400;
     const menuRef = useRef<HTMLDivElement>(null);
 
     const generateVisibleItems = () => {
         let visibleItems = [];
         for (let i = -1; i <= 1; i++) {
-            let index = (selectedMenuItemIndex + i + items.length) % items.length;
-            visibleItems.push(items[index]);
+            let index = (currentMenuItem + i + menuItems.length) % menuItems.length;
+            visibleItems.push(menuItems[index]);
         }
 
         return visibleItems;
@@ -24,13 +25,13 @@ export const Menu: React.FC = () => {
             <div className="menu" ref={menuRef}>
                 {visibleItems.map((item, index) => (
                     <div
-                        key={item.id}
+                        key={index}
                         className={`menuItem ${index === 1 ? 'active' : ''}`}
                         style={{
                             transform: `translateX(${index * menuItemWidth - menuItemWidth}px)`
                         }}
                     >
-                        {item.label}
+                        {capitalizeFirstLetter(item)}
                     </div>
                 ))}
             </div>

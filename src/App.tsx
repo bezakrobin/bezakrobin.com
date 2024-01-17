@@ -1,32 +1,38 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Page} from "./components/Page/Page";
-import {PageTitle} from "./components/PageTitle/PageTitle";
-import {Spacing} from "./components/Spacing/Spacing";
-import {Menu} from "./components/Menu/Menu";
-import {useAppContext} from "./contexts/AppContext";
+import {useNavigation} from "./contexts/NavigationContext";
+import {NavigationProvider} from "./contexts/NavigationProvider";
+import {getDefaultPage, getDeviceType, menuNext, menuPrevious} from "./utils/functions";
+import {navigationData} from "./utils/data";
 
-const App: React.FC = () => {
-    const {isMobile, setActiveIndex, selectedMenuItemIndex, items} = useAppContext();
+const MainContent: React.FC = () => {
+    const {currentMenuItem, menuItems, setMenuItemIndex, currentPage, setCurrentPage} = useNavigation();
 
-    const menuPrevious = () => {
-        if (selectedMenuItemIndex > 0) {
-            setActiveIndex(selectedMenuItemIndex - 1);
-        } else if (selectedMenuItemIndex === 0) {
-            setActiveIndex(items.length - 1);
+    useEffect(() => {
+        if (currentPage === null) {
+            const page = getDefaultPage(navigationData.pages);
+            if (page) {
+                setCurrentPage(page);
+            }
         }
-    };
+    }, [currentPage, setCurrentPage]);
 
-    const menuNext = () => {
-        if (selectedMenuItemIndex < items.length) {
-            setActiveIndex(selectedMenuItemIndex + 1);
-        } else if (selectedMenuItemIndex === items.length) {
-            setActiveIndex(1);
+    const getFunction = (functionName: string | undefined) => {
+        if (!functionName) return undefined;
+
+        switch (functionName) {
+            case 'menuPrevious':
+                return () => menuPrevious(currentMenuItem, menuItems.length, setMenuItemIndex);
+            case 'menuNext':
+                return () => menuNext(currentMenuItem, menuItems.length, setMenuItemIndex);
+            default:
+                return undefined;
         }
     };
 
     return (
         <>
-            {isMobile ?
+            {getDeviceType() === "mobile" ?
                 (
                     <>
                         {/* MOBILE */}
@@ -37,20 +43,27 @@ const App: React.FC = () => {
                         {/* DESKTOP */}
                         {/* Header Menu Page */}
                         <Page
-                            arrowLeft={true}
-                            arrowRight={true}
-                            onArrowLeftMouseUp={menuPrevious}
-                            onArrowRightMouseUp={menuNext}
-                            onArrowLeftKeyUp={menuPrevious}
-                            onArrowRightKeyUp={menuNext}
-                        >
-                            <Spacing direction={"vertical"} spacing={10}/>
-                            <PageTitle text={'Robin Bezak'}/>
-                            <Menu />
-                        </Page>
+                            arrowLeft={currentPage?.navigation.left}
+                            arrowRight={currentPage?.navigation.right}
+                            arrowDown={currentPage?.navigation.down}
+                            arrowUp={currentPage?.navigation.up}
+                            onArrowLeftMouseUp={getFunction(currentPage?.navigationFunctions.left)}
+                            onArrowRightMouseUp={getFunction(currentPage?.navigationFunctions.right)}
+                            onArrowLeftKeyUp={getFunction(currentPage?.navigationFunctions.left)}
+                            onArrowRightKeyUp={getFunction(currentPage?.navigationFunctions.right)}
+                            render={currentPage && currentPage.render ? currentPage.render : undefined}
+                        />
                     </>
                 )}
         </>
+    );
+};
+
+const App: React.FC = () => {
+    return (
+        <NavigationProvider>
+            <MainContent/>
+        </NavigationProvider>
     );
 };
 

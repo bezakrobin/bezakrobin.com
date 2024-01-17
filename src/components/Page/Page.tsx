@@ -6,7 +6,7 @@ import ArrowLeft from '../../images/ArrowLeft.svg'
 import ArrowRight from '../../images/ArrowRight.svg'
 
 interface PageProps {
-    children?: React.ReactNode;
+    render?: () => React.ReactNode;
     arrowUp?: boolean;
     arrowDown?: boolean;
     arrowLeft?: boolean;
@@ -22,7 +22,7 @@ interface PageProps {
 }
 
 export const Page: React.FC<PageProps> = ({
-                                              children,
+                                              render,
                                               arrowUp,
                                               arrowDown,
                                               arrowLeft,
@@ -58,27 +58,29 @@ export const Page: React.FC<PageProps> = ({
 
     return (
         <div className="page">
-            {arrowUp && (
-                <div className="top-centered">
-                    <img src={ArrowUp} alt="Arrow Up" className="arrow" onMouseUp={onArrowUpMouseUp}/>
-                </div>
-            )}
-            {arrowDown && (
-                <div className="bottom-centered">
-                    <img src={ArrowDown} alt="Arrow Down" className="arrow" onMouseUp={onArrowDownMouseUp}/>
-                </div>
-            )}
-            {arrowLeft && (
-                <div className="left-centered">
-                    <img src={ArrowLeft} alt="Arrow Left" className="arrow" onMouseUp={onArrowLeftMouseUp}/>
-                </div>
-            )}
-            {arrowRight && (
-                <div className="right-centered">
-                    <img src={ArrowRight} alt="Arrow Right" className="arrow" onMouseUp={onArrowRightMouseUp}/>
-                </div>
-            )}
-            {children ? children : null}
+            <>
+                {arrowUp && (
+                    <div className="top-centered">
+                        <img src={ArrowUp} alt="Arrow Up" className="arrow" onMouseUp={onArrowUpMouseUp}/>
+                    </div>
+                )}
+                {arrowDown && (
+                    <div className="bottom-centered">
+                        <img src={ArrowDown} alt="Arrow Down" className="arrow" onMouseUp={onArrowDownMouseUp}/>
+                    </div>
+                )}
+                {arrowLeft && (
+                    <div className="left-centered">
+                        <img src={ArrowLeft} alt="Arrow Left" className="arrow" onMouseUp={onArrowLeftMouseUp}/>
+                    </div>
+                )}
+                {arrowRight && (
+                    <div className="right-centered">
+                        <img src={ArrowRight} alt="Arrow Right" className="arrow" onMouseUp={onArrowRightMouseUp}/>
+                    </div>
+                )}
+                {render && render()}
+            </>
         </div>
     );
 };
