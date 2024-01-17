@@ -4,9 +4,10 @@ import {useNavigation} from "./contexts/NavigationContext";
 import {NavigationProvider} from "./contexts/NavigationProvider";
 import {getDefaultPage, getDeviceType, menuNext, menuPrevious} from "./utils/functions";
 import {navigationData} from "./utils/data";
+import {Legend} from "./components/Overlays/Legend/Legend";
 
 const MainContent: React.FC = () => {
-    const {currentMenuItem, menuItems, setMenuItemIndex, currentPage, setCurrentPage} = useNavigation();
+    const {currentMenuItem, menuItems, setMenuItemIndex, currentPage, setCurrentPage, showLegend} = useNavigation();
 
     useEffect(() => {
         if (currentPage === null) {
@@ -41,6 +42,10 @@ const MainContent: React.FC = () => {
                 ) : (
                     <>
                         {/* DESKTOP */}
+
+                        {/* Legend Overlay */}
+                        {showLegend && <Legend />}
+
                         {/* Header Menu Page */}
                         <Page
                             arrowLeft={currentPage?.navigation.left}

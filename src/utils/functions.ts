@@ -33,3 +33,10 @@ export const menuNext = (currentMenuItem: number, menuItemsLength: number, setMe
         setMenuItemIndex(0);
     }
 };
+
+export const toggleShowLegend = (
+    setShowLegend: (show: boolean) => void,
+    showLegend: boolean
+) => {
+    setShowLegend(!showLegend);
+};
