@@ -44,7 +44,8 @@ const MainContent: React.FC = () => {
                     <>
                         {/* DESKTOP */}
 
-                        <HintTopLeft />
+                        {/* Escape Button for Legend Overlay */}
+                        {!showLegend ? <HintTopLeft /> : null}
 
                         {/* Legend Overlay */}
                         {showLegend && <Legend />}
@@ -68,6 +69,39 @@ const MainContent: React.FC = () => {
 };
 
 const App: React.FC = () => {
+
+    useEffect(() => {
+        const handleContextMenu = (event: MouseEvent) => {
+            event.preventDefault();
+        };
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.ctrlKey && (event.key === 'a' || event.key === 'A')) {
+                event.preventDefault();
+            }
+
+            if (event.ctrlKey && (event.key === 'c' || event.key === 'C')) {
+                event.preventDefault();
+            }
+        };
+
+        const handleMouseDown = (event: MouseEvent) => {
+            if (event.button !== 0) {
+                event.preventDefault();
+            }
+        };
+
+        window.addEventListener('contextmenu', handleContextMenu);
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('mousedown', handleMouseDown);
+
+        return () => {
+            window.removeEventListener('contextmenu', handleContextMenu);
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('mousedown', handleMouseDown);
+        };
+    }, []);
+
     return (
         <NavigationProvider>
             <MainContent/>

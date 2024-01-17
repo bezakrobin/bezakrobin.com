@@ -1,0 +1,36 @@
+.cls-1 {
+    fill:none;
+    stroke: grey;
+}
+
+.g-key:hover {
+    fill: white !important;
+    filter: url(#neon-effect-other-buttons);
+}
+
+.cls-2 {
+    font-size:7px;
+    fill:#fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:700;
+}
+
+.key {
+    stroke: #fff;
+}
+
+.key-cursor {
+    cursor: pointer;
+}
+
+.key-cursor:hover {
+    fill: white;
+    filter: url(#neon-effect);
+}
+
+.keyboard {
+    width: 70%;
+    height: 70vh;
+    user-select: none;
+}
+
