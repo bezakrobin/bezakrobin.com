@@ -1,0 +1,22 @@
+.cls-1 {
+    fill:none;
+    stroke: grey;
+}
+
+.cls-2 {
+    font-size:7px;
+    fill:#fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:700;
+}
+
+.key {
+    stroke: #fff;
+}
+
+.keyboard {
+    width: 70%;
+    height: 70vh;
+    user-select: none;
+}
+

@@ -1,20 +1,31 @@
 import React, {useEffect} from 'react';
 import './LegendStyle.css';
-import KeyboardLayoutSVG from '../../../images/Keyboard.svg';
+import {Keyboard} from "../../Keyboard/Keyboard";
 
 export const Legend: React.FC = () => {
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
-            const keyElement = document.getElementById(`key-${event.key.toLowerCase()}`);
-            if (keyElement) {
-                keyElement.classList.add('highlight');
+            const keyId = `key-${event.key.toLowerCase()}`;
+            console.log(keyId);
+
+            const rectKeyElement = document.getElementById(`rect-key-${event.key.toLowerCase()}`);
+            const pathKeyElement = document.getElementById(`path-key-${event.key.toLowerCase()}`);
+            if (rectKeyElement) {
+                rectKeyElement.classList.add('highlight');
+            }
+            if (pathKeyElement) {
+                pathKeyElement.classList.add('highlight');
             }
         };
 
         const handleKeyUp = (event: KeyboardEvent) => {
-            const keyElement = document.getElementById(`key-${event.key.toLowerCase()}`);
-            if (keyElement) {
-                keyElement.classList.remove('highlight');
+            const rectKeyElement = document.getElementById(`rect-key-${event.key.toLowerCase()}`);
+            const pathKeyElement = document.getElementById(`path-key-${event.key.toLowerCase()}`);
+            if (rectKeyElement) {
+                rectKeyElement.classList.remove('highlight');
+            }
+            if (pathKeyElement) {
+                pathKeyElement.classList.remove('highlight');
             }
         };
 
@@ -29,7 +40,7 @@ export const Legend: React.FC = () => {
 
     return (
         <div className="legend">
-            <img src={KeyboardLayoutSVG} alt="Keyboard Layout" />
+            <Keyboard />
         </div>
     );
 };

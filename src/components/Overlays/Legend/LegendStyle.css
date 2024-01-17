@@ -15,7 +15,9 @@
 }
 
 .highlight {
-    fill: #ffcc00;
+    stroke: red;
+    stroke-width: 2;
+    filter: url(#neon-effect);
 }
 
 .legend img {
