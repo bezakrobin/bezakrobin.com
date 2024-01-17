@@ -46,3 +46,11 @@
     font-family: 'Courier New', Courier, monospace;
     user-select: none;
 }
+
+.hint-top-left img.escape-pressed {
+    transform: scale(0.9);
+}
+
+.key-pressed {
+    transform: scale(0.9);
+}
