@@ -30,7 +30,19 @@ export const navigationData : NavigationData = {
             }
         },
         {
-            name: 'about',
+            name: 'about me',
+            type: 'desktop',
+            navigation: {
+                left: true,
+                right: true
+            },
+            navigationFunctions: {
+                left: '',
+                right: '',
+            }
+        },
+        {
+            name: 'statistics',
             type: 'desktop',
             navigation: {
                 left: true,
