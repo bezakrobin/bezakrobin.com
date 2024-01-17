@@ -68,6 +68,31 @@ const MainContent: React.FC = () => {
 };
 
 const App: React.FC = () => {
+
+    useEffect(() => {
+        const handleContextMenu = (event: MouseEvent) => {
+            event.preventDefault();
+        };
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.ctrlKey && (event.key === 'a' || event.key === 'A')) {
+                event.preventDefault();
+            }
+
+            if (event.ctrlKey && (event.key === 'c' || event.key === 'C')) {
+                event.preventDefault();
+            }
+        };
+
+        window.addEventListener('contextmenu', handleContextMenu);
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('contextmenu', handleContextMenu);
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
+
     return (
         <NavigationProvider>
             <MainContent/>
