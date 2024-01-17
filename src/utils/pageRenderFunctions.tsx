@@ -6,7 +6,6 @@ import {HintBottom} from "../components/Hints/HintBottom";
 import {AlertBottom} from "../components/Alerts/AlertBottom";
 import {HintTopLeft} from "../components/Hints/HintTopLeft";
 
-{/* Home Page Rules */}
 const showHintBottom = true;
 const showHintTopLeft = true;
 const showAlertBottom = false;
