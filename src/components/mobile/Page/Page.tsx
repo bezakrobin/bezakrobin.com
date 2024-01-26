@@ -7,5 +7,4 @@ type Props = {
 
 export const Page = (props: Props): JSX.Element => {
     return <div className="mobile-page-wrapper">{props.children}</div>;
-
 }
