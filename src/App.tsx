@@ -6,6 +6,7 @@ import {getDefaultPage, getDeviceType, menuNext, menuPrevious} from "./utils/fun
 import {navigationData} from "./utils/data";
 import {Legend} from "./components/web/Overlays/Legend/Legend";
 import {HintTopLeft} from "./components/web/Hints/HintTopLeft";
+import {Page as MobilePage} from "./components/mobile/Page/Page";
 
 const MainContent: React.FC = () => {
     const {currentMenuItem, menuItems, setMenuItemIndex, currentPage, setCurrentPage, showLegend} = useNavigation();
@@ -38,7 +39,10 @@ const MainContent: React.FC = () => {
                 (
                     <>
                         {/* MOBILE */}
-                        <p>mobile version is not available at this moment, to visit the website use your laptop</p>
+
+                        {/* Mobile page wrapper */}
+                        <MobilePage>
+                        </MobilePage>
                     </>
                 ) : (
                     <>
@@ -50,7 +54,7 @@ const MainContent: React.FC = () => {
                         {/* Legend Overlay */}
                         {showLegend && <Legend />}
 
-                        {/* Header Menu Page */}
+                        {/* Desktop page wrapper */}
                         <Page
                             arrowLeft={currentPage?.navigation.left}
                             arrowRight={currentPage?.navigation.right}
