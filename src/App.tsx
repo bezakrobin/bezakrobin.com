@@ -7,7 +7,7 @@ import {navigationData} from "./utils/data";
 import {Legend} from "./components/web/Overlays/Legend/Legend";
 import {HintTopLeft} from "./components/web/Hints/HintTopLeft";
 import {Page as MobilePage} from "./components/mobile/Page/Page";
-import { MobileIsNotSupported } from './components/mobile/MobileIsNotSupported/MobileIsNotSupported';
+import {MobileIsNotSupported} from './components/mobile/MobileIsNotSupported/MobileIsNotSupported';
 
 const MainContent: React.FC = () => {
     const {currentMenuItem, menuItems, setMenuItemIndex, currentPage, setCurrentPage, showLegend} = useNavigation();
