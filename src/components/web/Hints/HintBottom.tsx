@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
-import EnterKeyImg from '../../images/Enter.svg';
-import SpacebarImg from '../../images/Spacebar.svg';
+import EnterKeyImg from '../../../images/Enter.svg';
+import SpacebarImg from '../../../images/Spacebar.svg';
 import './HintStyle.css';
-import {NavigationContext} from "../../contexts/NavigationContext";
+import {NavigationContext} from "../../../contexts/NavigationContext";
 
 export const HintBottom: React.FC = () => {
     const [isEnterPressed, setIsEnterPressed] = useState(false);

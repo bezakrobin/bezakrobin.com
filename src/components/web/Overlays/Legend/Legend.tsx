@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './LegendStyle.css';
 import {Keyboard} from "../../Keyboard/Keyboard";
-import {useNavigation} from "../../../contexts/NavigationContext";
+import {useNavigation} from "../../../../contexts/NavigationContext";
 
 export const Legend: React.FC = () => {
     const {showLegend, setShowLegend} = useNavigation();
