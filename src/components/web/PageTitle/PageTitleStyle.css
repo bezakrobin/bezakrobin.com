@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Think';
-    src: url('../../fonts/Think.otf') format('opentype'),
-    url('../../fonts/Think.ttf') format('truetype');
+    src: url('../../../fonts/Think.otf') format('opentype'),
+    url('../../../fonts/Think.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './PageStyle.css';
-import ArrowUp from '../../images/ArrowUp.svg'
-import ArrowDown from '../../images/ArrowDown.svg'
-import ArrowLeft from '../../images/ArrowLeft.svg'
-import ArrowRight from '../../images/ArrowRight.svg'
-import {NavigationContext} from "../../contexts/NavigationContext";
+import ArrowUp from '../../../images/ArrowUp.svg'
+import ArrowDown from '../../../images/ArrowDown.svg'
+import ArrowLeft from '../../../images/ArrowLeft.svg'
+import ArrowRight from '../../../images/ArrowRight.svg'
+import {NavigationContext} from "../../../contexts/NavigationContext";
 
 interface PageProps {
     render?: () => React.ReactNode;
