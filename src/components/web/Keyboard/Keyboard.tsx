@@ -865,40 +865,40 @@ export const Keyboard = (props: Props): React.ReactElement => {
                             </g>
                             <text className="cls-3" transform="translate(352.34 236.13)">M</text>
                         </g>
-                        {props.isSelectionKeysHintVisible && (
-                            <g id="SelectionKeysHint">
-                                <circle className="cls-4" cx="563.43" cy="181.63" r="4.12" fill="white"/>
-                                <polyline className="cls-1 key" points="472.53 349.45 563.43 349.45 563.43 181.63"/>
-                                <circle className="cls-4" cx="284.25" cy="278.76" r="4.12" fill="white"/>
-                                <polyline className="cls-1 key" points="284.25 278.76 284.25 349.45 342.65 349.45"/>
-                                <text className="cls-5" transform="translate(357.3 352.04)">Selection keys</text>
-                                <circle className="cls-4" cx="861.2" cy="270.91" r="4.12" fill="white"/>
-                                <polyline className="cls-1 key" points="861.2 270.92 861.2 349.45 563.43 349.45"/>
-                            </g>
-                        )}
-                        {props.isOpenCloseKeysHintMenu && (
-                            <g id="OpenCloseKeysHintMenu">
-                                <circle className="cls-4" cx="52.59" cy="77.24" r="4.12" fill="white"/>
-                                <polyline className="cls-1 key" points="52.59 77.24 89.67 77.24 89.67 21.92"/>
-                                <text className="cls-5" transform="translate(15 9.55)">Open/Close hint menu</text>
-                            </g>
-                        )}
-                        {props.isOpenCloseWebsiteMap && (
-                            <g id="OpenCloseWebsiteMap">
-                                <circle className="cls-4" cx="355.25" cy="241.95" r="4.12" fill="white"/>
-                                <line className="cls-1 key" x1="355.25" y1="241.95" x2="355.25" y2="332.27"/>
-                                <text className="cls-5" transform="translate(276.58 345.26)">Open/Close website map</text>
-                            </g>
-                        )}
-                        {props.isNavigationKeys && (
-                            <g id="NavigationKeys">
-                                <circle id="Point" className="cls-4" cx="659.37" cy="277.21" r="4.12" fill="white"/>
-                                <line className="cls-1 key" x1="659.37" y1="277.21" x2="659.37" y2="337.45"/>
-                                <text id="Text" className="cls-5" transform="translate(606.06 351.02)">Navigation keys
-                                </text>
-                            </g>
-                        )}
                     </g>
+                    {props.isSelectionKeysHintVisible && (
+                        <g id="SelectionKeysHint">
+                            <circle className="cls-4" cx="563.43" cy="181.63" r="4.12" fill="white"/>
+                            <polyline className="cls-1 key" points="472.53 349.45 563.43 349.45 563.43 181.63"/>
+                            <circle className="cls-4" cx="284.25" cy="278.76" r="4.12" fill="white"/>
+                            <polyline className="cls-1 key" points="284.25 278.76 284.25 349.45 342.65 349.45"/>
+                            <text className="cls-5" transform="translate(357.3 352.04)">Selection keys</text>
+                            <circle className="cls-4" cx="861.2" cy="270.91" r="4.12" fill="white"/>
+                            <polyline className="cls-1 key" points="861.2 270.92 861.2 349.45 563.43 349.45"/>
+                        </g>
+                    )}
+                    {props.isOpenCloseKeysHintMenu && (
+                        <g id="OpenCloseKeysHintMenu">
+                            <circle className="cls-4" cx="52.59" cy="77.24" r="4.12" fill="white"/>
+                            <polyline className="cls-1 key" points="52.59 77.24 89.67 77.24 89.67 21.92"/>
+                            <text className="cls-5" transform="translate(15 9.55)">Open/Close hint menu</text>
+                        </g>
+                    )}
+                    {props.isOpenCloseWebsiteMap && (
+                        <g id="OpenCloseWebsiteMap">
+                            <circle className="cls-4" cx="355.25" cy="241.95" r="4.12" fill="white"/>
+                            <line className="cls-1 key" x1="355.25" y1="241.95" x2="355.25" y2="332.27"/>
+                            <text className="cls-5" transform="translate(276.58 345.26)">Open/Close website map</text>
+                        </g>
+                    )}
+                    {props.isNavigationKeys && (
+                        <g id="NavigationKeys">
+                            <circle id="Point" className="cls-4" cx="659.37" cy="277.21" r="4.12" fill="white"/>
+                            <line className="cls-1 key" x1="659.37" y1="277.21" x2="659.37" y2="337.45"/>
+                            <text id="Text" className="cls-5" transform="translate(606.06 351.02)">Navigation keys
+                            </text>
+                        </g>
+                    )}
                 </g>
             </svg>
         </>
