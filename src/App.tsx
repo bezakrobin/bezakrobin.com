@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react';
-import {Page} from "./components/Page/Page";
+import {Page} from "./components/web/Page/Page";
 import {useNavigation} from "./contexts/NavigationContext";
 import {NavigationProvider} from "./contexts/NavigationProvider";
 import {getDefaultPage, getDeviceType, menuNext, menuPrevious} from "./utils/functions";
 import {navigationData} from "./utils/data";
-import {Legend} from "./components/Overlays/Legend/Legend";
-import {HintTopLeft} from "./components/Hints/HintTopLeft";
+import {Legend} from "./components/web/Overlays/Legend/Legend";
+import {HintTopLeft} from "./components/web/Hints/HintTopLeft";
+import {Page as MobilePage} from "./components/mobile/Page/Page";
+import {MobileIsNotSupported} from './components/mobile/MobileIsNotSupported/MobileIsNotSupported';
 
 const MainContent: React.FC = () => {
     const {currentMenuItem, menuItems, setMenuItemIndex, currentPage, setCurrentPage, showLegend} = useNavigation();
@@ -38,7 +40,11 @@ const MainContent: React.FC = () => {
                 (
                     <>
                         {/* MOBILE */}
-                        <p>mobile version is not available at this moment, to visit the website use your laptop</p>
+
+                        {/* Mobile page wrapper */}
+                        <MobilePage>
+                            <MobileIsNotSupported />
+                        </MobilePage>
                     </>
                 ) : (
                     <>
@@ -50,7 +56,7 @@ const MainContent: React.FC = () => {
                         {/* Legend Overlay */}
                         {showLegend && <Legend />}
 
-                        {/* Header Menu Page */}
+                        {/* Desktop page wrapper */}
                         <Page
                             arrowLeft={currentPage?.navigation.left}
                             arrowRight={currentPage?.navigation.right}

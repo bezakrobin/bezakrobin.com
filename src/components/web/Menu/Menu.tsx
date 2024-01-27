@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './MenuStyle.css';
-import {useNavigation} from "../../contexts/NavigationContext";
-import {capitalizeFirstLetter} from "../../utils/functions";
+import {useNavigation} from "../../../contexts/NavigationContext";
+import {capitalizeFirstLetter} from "../../../utils/functions";
 
 export const Menu: React.FC = () => {
     const { currentMenuItem, menuItems } = useNavigation();
