@@ -1,9 +1,16 @@
+
 import React from "react";
 import './KeyboardStyle.css';
 
-export const Keyboard: React.FC<{
-    onEscapeClick: () => void
-}> = ({onEscapeClick}) => {
+type Props = {
+    isSelectionKeysHintVisible: boolean;
+    isOpenCloseKeysHintMenu: boolean;
+    isOpenCloseWebsiteMap: boolean;
+    isNavigationKeys: boolean;
+    onEscapeClick: () => void;
+}
+
+export const Keyboard = (props: Props): React.ReactElement => {
     return (
         <>
             <svg className="keyboard" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -20 900 400">
@@ -683,7 +690,7 @@ export const Keyboard: React.FC<{
                                   d="M577.21,151.6H540.38a3.72,3.72,0,0,0-3.88,3.88v17.44a3.71,3.71,0,0,0,3.88,3.87h1.93a3.72,3.72,0,0,1,3.88,3.88v29.06a3.73,3.73,0,0,0,3.88,3.88h27.14a3.73,3.73,0,0,0,3.88-3.88V155.48A3.73,3.73,0,0,0,577.21,151.6Z"/>
                             <text className="cls-2" transform="translate(549.1 160.48)">enter</text>
                         </g>
-                        <g id="Escape" className='key-cursor' onClick={onEscapeClick}>
+                        <g id="Escape" className='key-cursor' onClick={props.onEscapeClick}>
                             <rect id="hitbox-key-escape" className="hitbox" x="35" y="56" width="35" height="35"
                                   fill="transparent"/>
                             <path id="rect-key-escape" className="cls-1 key"
@@ -858,31 +865,39 @@ export const Keyboard: React.FC<{
                             </g>
                             <text className="cls-3" transform="translate(352.34 236.13)">M</text>
                         </g>
-                        <g id="SelectionKeysHint" className="hint">
-                            <circle className="cls-4" cx="563.43" cy="181.63" r="4.12" fill="white"/>
-                            <polyline className="cls-1 key" points="472.53 349.45 563.43 349.45 563.43 181.63"/>
-                            <circle className="cls-4" cx="284.25" cy="278.76" r="4.12" fill="white"/>
-                            <polyline className="cls-1 key" points="284.25 278.76 284.25 349.45 342.65 349.45"/>
-                            <text className="cls-5" transform="translate(357.3 352.04)">Selection keys</text>
-                            <circle className="cls-4" cx="861.2" cy="270.91" r="4.12" fill="white"/>
-                            <polyline className="cls-1 key" points="861.2 270.92 861.2 349.45 563.43 349.45"/>
-                        </g>
-                        <g id="OpenCloseKeysHintMenu" className="hint">
-                            <circle className="cls-4" cx="52.59" cy="77.24" r="4.12" fill="white"/>
-                            <polyline className="cls-1 key" points="52.59 77.24 89.67 77.24 89.67 21.92"/>
-                            <text className="cls-5" transform="translate(15 9.55)">Open/Close hint menu</text>
-                        </g>
-                        <g id="OpenCloseWebsiteMap" className="hint">
-                            <circle className="cls-4" cx="355.25" cy="241.95" r="4.12" fill="white"/>
-                            <line className="cls-1 key" x1="355.25" y1="241.95" x2="355.25" y2="332.27"/>
-                            <text className="cls-5" transform="translate(276.58 345.26)">Open/Close website map</text>
-                        </g>
-                        <g id="NavigationKeys" className="hint">
-                            <circle id="Point" className="cls-4" cx="659.37" cy="277.21" r="4.12" fill="white"/>
-                            <line className="cls-1 key" x1="659.37" y1="277.21" x2="659.37" y2="337.45"/>
-                            <text id="Text" className="cls-5" transform="translate(606.06 351.02)">Navigation keys
-                            </text>
-                        </g>
+                        {props.isSelectionKeysHintVisible && (
+                            <g id="SelectionKeysHint">
+                                <circle className="cls-4" cx="563.43" cy="181.63" r="4.12" fill="white"/>
+                                <polyline className="cls-1 key" points="472.53 349.45 563.43 349.45 563.43 181.63"/>
+                                <circle className="cls-4" cx="284.25" cy="278.76" r="4.12" fill="white"/>
+                                <polyline className="cls-1 key" points="284.25 278.76 284.25 349.45 342.65 349.45"/>
+                                <text className="cls-5" transform="translate(357.3 352.04)">Selection keys</text>
+                                <circle className="cls-4" cx="861.2" cy="270.91" r="4.12" fill="white"/>
+                                <polyline className="cls-1 key" points="861.2 270.92 861.2 349.45 563.43 349.45"/>
+                            </g>
+                        )}
+                        {props.isOpenCloseKeysHintMenu && (
+                            <g id="OpenCloseKeysHintMenu">
+                                <circle className="cls-4" cx="52.59" cy="77.24" r="4.12" fill="white"/>
+                                <polyline className="cls-1 key" points="52.59 77.24 89.67 77.24 89.67 21.92"/>
+                                <text className="cls-5" transform="translate(15 9.55)">Open/Close hint menu</text>
+                            </g>
+                        )}
+                        {props.isOpenCloseWebsiteMap && (
+                            <g id="OpenCloseWebsiteMap">
+                                <circle className="cls-4" cx="355.25" cy="241.95" r="4.12" fill="white"/>
+                                <line className="cls-1 key" x1="355.25" y1="241.95" x2="355.25" y2="332.27"/>
+                                <text className="cls-5" transform="translate(276.58 345.26)">Open/Close website map</text>
+                            </g>
+                        )}
+                        {props.isNavigationKeys && (
+                            <g id="NavigationKeys">
+                                <circle id="Point" className="cls-4" cx="659.37" cy="277.21" r="4.12" fill="white"/>
+                                <line className="cls-1 key" x1="659.37" y1="277.21" x2="659.37" y2="337.45"/>
+                                <text id="Text" className="cls-5" transform="translate(606.06 351.02)">Navigation keys
+                                </text>
+                            </g>
+                        )}
                     </g>
                 </g>
             </svg>

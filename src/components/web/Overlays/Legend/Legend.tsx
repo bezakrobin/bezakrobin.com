@@ -1,10 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './LegendStyle.css';
 import {Keyboard} from "../../Keyboard/Keyboard";
 import {useNavigation} from "../../../../contexts/NavigationContext";
 
 export const Legend: React.FC = () => {
     const {showLegend, setShowLegend} = useNavigation();
+    const [isSelectionKeysHintVisible, setSelectionKeysHintVisible] = useState<boolean>(false);
+    const [isOpenCloseWebsiteMap, setOpenCloseWebsiteMap] = useState<boolean>(false);
+    const [isNavigationKeys, setNavigationKeys] = useState<boolean>(false);
 
     const handleEscapeClick = () => {
         setShowLegend(!showLegend);
@@ -19,6 +22,15 @@ export const Legend: React.FC = () => {
             }
             if (pathKeyElement) {
                 pathKeyElement.classList.add('highlight');
+            }
+            if (event.code.toLowerCase() === 'keym') {
+                setOpenCloseWebsiteMap(true);
+            }
+            if (event.code.toLowerCase() === 'enter' || event.code.toLowerCase() === 'space' || event.code.toLowerCase() === 'numpadenter') {
+                setSelectionKeysHintVisible(true);
+            }
+            if (event.code.toLowerCase() === 'arrowleft' || event.code.toLowerCase() === 'arrowright' || event.code.toLowerCase() === 'arrowdown' || event.code.toLowerCase() === 'arrowup') {
+                setNavigationKeys(true);
             }
         };
 
@@ -35,6 +47,21 @@ export const Legend: React.FC = () => {
                 setShowLegend(!showLegend);
                 event.preventDefault();
             }
+            if (event.code.toLowerCase() === 'keym') {
+                setTimeout(() => {
+                    setOpenCloseWebsiteMap(false);
+                }, 2000);
+            }
+            if (event.code.toLowerCase() === 'enter' || event.code.toLowerCase() === 'space' || event.code.toLowerCase() === 'numpadenter') {
+                setTimeout(() => {
+                    setSelectionKeysHintVisible(false);
+                }, 2000);
+            }
+            if (event.code.toLowerCase() === 'arrowleft' || event.code.toLowerCase() === 'arrowright' || event.code.toLowerCase() === 'arrowdown' || event.code.toLowerCase() === 'arrowup') {
+                setTimeout(() => {
+                    setNavigationKeys(false);
+                }, 2000);
+            }
         };
 
         window.addEventListener('keydown', handleKeyDown);
@@ -48,7 +75,7 @@ export const Legend: React.FC = () => {
 
     return (
         <div className="legend">
-            <Keyboard onEscapeClick={handleEscapeClick} />
+            <Keyboard onEscapeClick={handleEscapeClick} isSelectionKeysHintVisible={isSelectionKeysHintVisible} isOpenCloseKeysHintMenu={true} isOpenCloseWebsiteMap={isOpenCloseWebsiteMap} isNavigationKeys={isNavigationKeys} />
         </div>
     );
 };
