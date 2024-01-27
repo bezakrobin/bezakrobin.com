@@ -851,9 +851,9 @@ export const Keyboard: React.FC<{
                             <rect id="hitbox-key-escape" className="hitbox" x="338" y="220" width="35" height="35"
                                   fill="transparent"/>
                             <g id="m-2">
-                                <path id="rect-key-m" className="cls-1 key"
+                                <path id="rect-key-keym" className="cls-1 key"
                                       d="M346.52,225.23H364a3.88,3.88,0,0,1,3.88,3.88v17.44a3.87,3.87,0,0,1-3.87,3.87H346.52a3.88,3.88,0,0,1-3.88-3.88V229.11A3.88,3.88,0,0,1,346.52,225.23Z"/>
-                                <path id="path-key-m" className="cls-1 key"
+                                <path id="path-key-keym" className="cls-1 key"
                                       d="M341.67,220.39h27.14a3.88,3.88,0,0,1,3.88,3.88v27.12a3.88,3.88,0,0,1-3.88,3.88H341.68a3.88,3.88,0,0,1-3.88-3.88V224.26A3.87,3.87,0,0,1,341.67,220.39Z"/>
                             </g>
                             <text className="cls-3" transform="translate(352.34 236.13)">M</text>
