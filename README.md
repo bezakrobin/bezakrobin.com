@@ -53,6 +53,9 @@ Here's a brief overview of the top-level files and directories of this project:
 ## License
 This project is open-sourced under the MIT License.
 
+## Statistics
+Hours spent on this project: 38
+
 ## Connect with Me
 - Portfolio: [bezakrobin.com](https://bezak-robin-portfolio-website.onrender.com/)
 - LinkedIn: [bezak-robin](https://www.linkedin.com/in/bezak-robin/)
