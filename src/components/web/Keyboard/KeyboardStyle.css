@@ -47,3 +47,13 @@
     height: 70vh;
     user-select: none;
 }
+
+#Keyboard g {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.key-hint {
+    opacity: 0;
+    transition: opacity 1s;
+}

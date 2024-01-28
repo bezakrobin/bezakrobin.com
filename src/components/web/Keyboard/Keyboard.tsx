@@ -1,16 +1,81 @@
-
-import React from "react";
+import React, {useCallback, useEffect} from 'react';
 import './KeyboardStyle.css';
 
 type Props = {
-    isSelectionKeysHintVisible: boolean;
-    isOpenCloseKeysHintMenu: boolean;
-    isOpenCloseWebsiteMap: boolean;
-    isNavigationKeys: boolean;
-    onEscapeClick: () => void;
+    isOpenAnimationFinished: (finished: boolean) => void;
+    isCloseAnimationFinished: (finished: boolean) => void;
+    isCloseAnimation: boolean;
 }
 
 export const Keyboard = (props: Props): React.ReactElement => {
+    function shuffleArray(array: number[]): number[] {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    const createAndShuffleArray = useCallback((length: number): number[] => {
+        const array = Array.from({ length }, (_, i) => i);
+        return shuffleArray(array);
+    }, []);
+
+
+    useEffect(() => {
+        const keyboardGroup = document.getElementById('Keyboard');
+        if (!props.isCloseAnimation) {
+            props.isOpenAnimationFinished(false);
+            if (keyboardGroup) {
+                const allGElements = keyboardGroup.getElementsByTagName('g');
+                const shuffledArray = createAndShuffleArray(allGElements.length);
+
+                shuffledArray.forEach((index, i) => {
+                    setTimeout(() => {
+                        allGElements[index].style.opacity = '1';
+                    }, i * 10);
+                });
+
+                setTimeout(() => {
+                    props.isOpenAnimationFinished(true);
+                    const escapeHint = document.getElementById('OpenCloseKeysHintMenu');
+                    if (escapeHint) {
+                        setTimeout(() => {
+                            escapeHint.style.opacity = '1';
+                        }, 100);
+                    }
+                }, 2500);
+            }
+        }
+    }, []);
+
+    useEffect(() =>{
+        const keyboardGroup = document.getElementById('Keyboard');
+        if (props.isCloseAnimation) {
+            props.isCloseAnimationFinished(false);
+            if (keyboardGroup) {
+                const allGElements = keyboardGroup.getElementsByTagName('g');
+                const shuffledArray = createAndShuffleArray(allGElements.length);
+
+                const escapeHint = document.getElementById('OpenCloseKeysHintMenu');
+                if (escapeHint) {
+                    setTimeout(() => {
+                        escapeHint.style.opacity = '0';
+                    }, 100);
+                }
+
+                setTimeout(() => {
+                    props.isCloseAnimationFinished(true);
+                    shuffledArray.forEach((index, i) => {
+                        setTimeout(() => {
+                            allGElements[index].style.opacity = '0';
+                        }, i * 10);
+                    });
+                }, 1500);
+            }
+        }
+    }, [props.isCloseAnimation]);
+
     return (
         <>
             <svg className="keyboard" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -20 900 400">
@@ -690,7 +755,7 @@ export const Keyboard = (props: Props): React.ReactElement => {
                                   d="M577.21,151.6H540.38a3.72,3.72,0,0,0-3.88,3.88v17.44a3.71,3.71,0,0,0,3.88,3.87h1.93a3.72,3.72,0,0,1,3.88,3.88v29.06a3.73,3.73,0,0,0,3.88,3.88h27.14a3.73,3.73,0,0,0,3.88-3.88V155.48A3.73,3.73,0,0,0,577.21,151.6Z"/>
                             <text className="cls-2" transform="translate(549.1 160.48)">enter</text>
                         </g>
-                        <g id="Escape" className='key-cursor' onClick={props.onEscapeClick}>
+                        <g id="Escape" className='key-cursor'>
                             <rect id="hitbox-key-escape" className="hitbox" x="35" y="56" width="35" height="35"
                                   fill="transparent"/>
                             <path id="rect-key-escape" className="cls-1 key"
@@ -713,7 +778,7 @@ export const Keyboard = (props: Props): React.ReactElement => {
                                   fill="transparent"/>
                             <rect id="rect-key-arrowright" className="cls-1 key" x="678.98" y="257.21" width="34.89"
                                   height="34.88" rx="3.88"/>
-                            <path id="rect-key-arrowright" className="cls-1 key"
+                            <path id="path-key-arrowright" className="cls-1 key"
                                   d="M687.7,262h17.45a3.88,3.88,0,0,1,3.88,3.88v17.44a3.88,3.88,0,0,1-3.88,3.88H687.7a3.87,3.87,0,0,1-3.87-3.87V265.93A3.88,3.88,0,0,1,687.7,262Z"/>
                             <text className="cls-2" transform="matrix(-1, 0, 0, 1, 698.33, 270.91)">&lt;</text>
                         </g>
@@ -731,7 +796,7 @@ export const Keyboard = (props: Props): React.ReactElement => {
                                   fill="transparent"/>
                             <path id="rect-key-arrowdown" className="cls-1 key"
                                   d="M650.87,262h17.45a3.87,3.87,0,0,1,3.87,3.87v17.44a3.87,3.87,0,0,1-3.87,3.87H650.87a3.88,3.88,0,0,1-3.88-3.88V265.93A3.88,3.88,0,0,1,650.87,262Z"/>
-                            <rect id="rect-key-arrowdown" className="cls-1 key" x="642.15" y="257.21" width="34.89"
+                            <rect id="path-key-arrowdown" className="cls-1 key" x="642.15" y="257.21" width="34.89"
                                   height="34.88" rx="3.88"/>
                             <text className="cls-2" transform="translate(661.37 270.91) rotate(-90)">&lt;</text>
                         </g>
@@ -857,48 +922,38 @@ export const Keyboard = (props: Props): React.ReactElement => {
                         <g id="M" className='key-cursor'>
                             <rect id="hitbox-key-escape" className="hitbox" x="338" y="220" width="35" height="35"
                                   fill="transparent"/>
-                            <g id="m-2">
-                                <path id="rect-key-keym" className="cls-1 key"
-                                      d="M346.52,225.23H364a3.88,3.88,0,0,1,3.88,3.88v17.44a3.87,3.87,0,0,1-3.87,3.87H346.52a3.88,3.88,0,0,1-3.88-3.88V229.11A3.88,3.88,0,0,1,346.52,225.23Z"/>
-                                <path id="path-key-keym" className="cls-1 key"
-                                      d="M341.67,220.39h27.14a3.88,3.88,0,0,1,3.88,3.88v27.12a3.88,3.88,0,0,1-3.88,3.88H341.68a3.88,3.88,0,0,1-3.88-3.88V224.26A3.87,3.87,0,0,1,341.67,220.39Z"/>
-                            </g>
+                            <path className="cls-1 key" id="path-key-keym"
+                                  d="M346.52,225.23H364a3.88,3.88,0,0,1,3.88,3.88v17.44a3.87,3.87,0,0,1-3.87,3.87H346.52a3.88,3.88,0,0,1-3.88-3.88V229.11A3.88,3.88,0,0,1,346.52,225.23Z"/>
+                            <path className="cls-1 key" id="rect-key-keym"
+                                  d="M341.67,220.39h27.14a3.88,3.88,0,0,1,3.88,3.88v27.12a3.88,3.88,0,0,1-3.88,3.88H341.68a3.88,3.88,0,0,1-3.88-3.88V224.26A3.87,3.87,0,0,1,341.67,220.39Z"/>
                             <text className="cls-3" transform="translate(352.34 236.13)">M</text>
                         </g>
                     </g>
-                    {props.isSelectionKeysHintVisible && (
-                        <g id="SelectionKeysHint">
-                            <circle className="cls-4" cx="563.43" cy="181.63" r="4.12" fill="white"/>
-                            <polyline className="cls-1 key" points="472.53 349.45 563.43 349.45 563.43 181.63"/>
-                            <circle className="cls-4" cx="284.25" cy="278.76" r="4.12" fill="white"/>
-                            <polyline className="cls-1 key" points="284.25 278.76 284.25 349.45 342.65 349.45"/>
-                            <text className="cls-5" transform="translate(357.3 352.04)">Selection keys</text>
-                            <circle className="cls-4" cx="861.2" cy="270.91" r="4.12" fill="white"/>
-                            <polyline className="cls-1 key" points="861.2 270.92 861.2 349.45 563.43 349.45"/>
-                        </g>
-                    )}
-                    {props.isOpenCloseKeysHintMenu && (
-                        <g id="OpenCloseKeysHintMenu">
-                            <circle className="cls-4" cx="52.59" cy="77.24" r="4.12" fill="white"/>
-                            <polyline className="cls-1 key" points="52.59 77.24 89.67 77.24 89.67 21.92"/>
-                            <text className="cls-5" transform="translate(15 9.55)">Open/Close hint menu</text>
-                        </g>
-                    )}
-                    {props.isOpenCloseWebsiteMap && (
-                        <g id="OpenCloseWebsiteMap">
-                            <circle className="cls-4" cx="355.25" cy="241.95" r="4.12" fill="white"/>
-                            <line className="cls-1 key" x1="355.25" y1="241.95" x2="355.25" y2="332.27"/>
-                            <text className="cls-5" transform="translate(276.58 345.26)">Open/Close website map</text>
-                        </g>
-                    )}
-                    {props.isNavigationKeys && (
-                        <g id="NavigationKeys">
-                            <circle id="Point" className="cls-4" cx="659.37" cy="277.21" r="4.12" fill="white"/>
-                            <line className="cls-1 key" x1="659.37" y1="277.21" x2="659.37" y2="337.45"/>
-                            <text id="Text" className="cls-5" transform="translate(606.06 351.02)">Navigation keys
-                            </text>
-                        </g>
-                    )}
+                    <g id="SelectionKeysHint" className="key-hint">
+                        <circle className="cls-4" cx="563.43" cy="181.63" r="4.12" fill="white"/>
+                        <polyline className="cls-1 key" points="472.53 349.45 563.43 349.45 563.43 181.63"/>
+                        <circle className="cls-4" cx="284.25" cy="278.76" r="4.12" fill="white"/>
+                        <polyline className="cls-1 key" points="284.25 278.76 284.25 349.45 342.65 349.45"/>
+                        <text className="cls-5" transform="translate(357.3 352.04)">Selection keys</text>
+                        <circle className="cls-4" cx="861.2" cy="270.91" r="4.12" fill="white"/>
+                        <polyline className="cls-1 key" points="861.2 270.92 861.2 349.45 563.43 349.45"/>
+                    </g>
+                    <g id="OpenCloseKeysHintMenu" className="key-hint">
+                        <circle className="cls-4" cx="52.59" cy="77.24" r="4.12" fill="white"/>
+                        <polyline className="cls-1 key" points="52.59 77.24 89.67 77.24 89.67 21.92"/>
+                        <text className="cls-5" transform="translate(15 9.55)">Open/Close hint menu</text>
+                    </g>
+                    <g id="OpenCloseWebsiteMap" className="key-hint">
+                        <circle className="cls-4" cx="355.25" cy="241.95" r="4.12" fill="white"/>
+                        <line className="cls-1 key" x1="355.25" y1="241.95" x2="355.25" y2="332.27"/>
+                        <text className="cls-5" transform="translate(276.58 345.26)">Open/Close website map</text>
+                    </g>
+                    <g id="NavigationKeys" className="key-hint">
+                        <circle id="Point" className="cls-4" cx="659.37" cy="277.21" r="4.12" fill="white"/>
+                        <line className="cls-1 key" x1="659.37" y1="277.21" x2="659.37" y2="337.45"/>
+                        <text id="Text" className="cls-5" transform="translate(606.06 351.02)">Navigation keys
+                        </text>
+                    </g>
                 </g>
             </svg>
         </>
