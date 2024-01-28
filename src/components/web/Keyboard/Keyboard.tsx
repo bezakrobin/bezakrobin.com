@@ -71,7 +71,7 @@ export const Keyboard = (props: Props): React.ReactElement => {
                             allGElements[index].style.opacity = '0';
                         }, i * 10);
                     });
-                }, 1500);
+                }, 100);
             }
         }
         // eslint-disable-next-line
