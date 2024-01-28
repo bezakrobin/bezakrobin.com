@@ -67,7 +67,7 @@ export const Legend: React.FC = () => {
 
                     setTimeout(() => {
                         handleEscapeClick();
-                    }, 4000);
+                    }, 1500);
                 }
                 if (event.code.toLowerCase() === 'keym') {
                     if (openCloseWebsiteMapHint) {
