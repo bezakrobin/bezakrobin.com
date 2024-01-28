@@ -21,7 +21,6 @@ export const Keyboard = (props: Props): React.ReactElement => {
         return shuffleArray(array);
     }, []);
 
-
     useEffect(() => {
         const keyboardGroup = document.getElementById('Keyboard');
         if (!props.isCloseAnimation) {
@@ -47,6 +46,7 @@ export const Keyboard = (props: Props): React.ReactElement => {
                 }, 2500);
             }
         }
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() =>{
@@ -74,6 +74,7 @@ export const Keyboard = (props: Props): React.ReactElement => {
                 }, 1500);
             }
         }
+        // eslint-disable-next-line
     }, [props.isCloseAnimation]);
 
     return (

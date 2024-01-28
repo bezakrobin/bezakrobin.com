@@ -20,6 +20,7 @@ export const Legend: React.FC = () => {
         setIsCloseAnimation(finished);
     };
 
+    // eslint-disable-next-line
     useEffect(() => {
         const selectionKeysHint = document.getElementById('SelectionKeysHint');
         const openCloseWebsiteMapHint = document.getElementById('OpenCloseWebsiteMap');
