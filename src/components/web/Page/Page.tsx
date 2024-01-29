@@ -94,22 +94,22 @@ export const Page: React.FC<PageProps> = ({
             <>
                 {arrowUp && (
                     <div className="top-centered">
-                        <img src={ArrowUp} alt="Arrow Up" className={`arrow ${isArrowUpPressed ? 'pressed' : ''}`} onMouseUp={onArrowUpMouseUp}/>
+                        <img id="arrowUp" src={ArrowUp} alt="Arrow Up" className={`arrow ${isArrowUpPressed ? 'pressed' : ''}`} onMouseUp={onArrowUpMouseUp}/>
                     </div>
                 )}
                 {arrowDown && (
                     <div className="bottom-centered">
-                        <img src={ArrowDown} alt="Arrow Down" className={`arrow ${isArrowDownPressed ? 'pressed' : ''}`} onMouseUp={onArrowDownMouseUp}/>
+                        <img id="arrowDown" src={ArrowDown} alt="Arrow Down" className={`arrow ${isArrowDownPressed ? 'pressed' : ''}`} onMouseUp={onArrowDownMouseUp}/>
                     </div>
                 )}
                 {arrowLeft && (
                     <div className="left-centered">
-                        <img src={ArrowLeft} alt="Arrow Left" className={`arrow ${isArrowLeftPressed ? 'pressed' : ''}`} onMouseUp={onArrowLeftMouseUp}/>
+                        <img id="arrowLeft" src={ArrowLeft} alt="Arrow Left" className={`arrow ${isArrowLeftPressed ? 'pressed' : ''}`} onMouseUp={onArrowLeftMouseUp}/>
                     </div>
                 )}
                 {arrowRight && (
                     <div className="right-centered">
-                        <img src={ArrowRight} alt="Arrow Right" className={`arrow ${isArrowRightPressed ? 'pressed' : ''}`} onMouseUp={onArrowRightMouseUp}/>
+                        <img id="arrowRight" src={ArrowRight} alt="Arrow Right" className={`arrow ${isArrowRightPressed ? 'pressed' : ''}`} onMouseUp={onArrowRightMouseUp}/>
                     </div>
                 )}
                 {render && render()}

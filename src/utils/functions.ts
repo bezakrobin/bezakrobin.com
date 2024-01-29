@@ -18,7 +18,8 @@ export const capitalizeFirstLetter = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export const menuPrevious = (currentMenuItem: number, menuItemsLength: number, setMenuItemIndex:  (index: number) => void) => {
+export const menuPrevious = (currentMenuItem: number, menuItemsLength: number, setMenuItemIndex:  (index: number) => void, setMenuAnimation: (animation: string) => void) => {
+    setMenuAnimation('previous');
     if (currentMenuItem > 0) {
         setMenuItemIndex(currentMenuItem - 1);
     } else {
@@ -26,7 +27,8 @@ export const menuPrevious = (currentMenuItem: number, menuItemsLength: number, s
     }
 };
 
-export const menuNext = (currentMenuItem: number, menuItemsLength: number, setMenuItemIndex:  (index: number) => void) => {
+export const menuNext = (currentMenuItem: number, menuItemsLength: number, setMenuItemIndex:  (index: number) => void, setMenuAnimation: (animation: string) => void) => {
+    setMenuAnimation('next');
     if (currentMenuItem < menuItemsLength - 1) {
         setMenuItemIndex(currentMenuItem + 1);
     } else {
