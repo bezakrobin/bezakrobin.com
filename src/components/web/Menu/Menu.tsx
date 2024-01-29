@@ -36,27 +36,43 @@ export const Menu: React.FC = () => {
 
             if(menuAnimation === 'previous'){
                 newTransformValue += menuItemWidth;
+                if (currentMenuItem !== 0) {
+                    menuRef.current.style.transition = 'transform 0.5s ease-in-out';
+                }
                 if (currentMenuItem === 0) {
+                    menuRef.current.style.transition = 'transform 0s';
                     const lastSet = duplicatedMenuItems.slice(-menuItems.length);
                     duplicatedMenuItems.unshift(...lastSet);
                     duplicatedMenuItems.splice(-menuItems.length, menuItems.length);
-                    newTransformValue -= menuItemWidth * menuItems.length;
+                    newTransformValue -= 2400;
+                    setTimeout(() => {
+                        if (menuRef.current) {
+                            newTransformValue += menuItemWidth;
+                            menuRef.current.style.transition = 'transform 0.5s ease-in-out';
+                            menuRef.current.style.transform = `translateX(${newTransformValue}px)`;
+                        }
+                    }, 10);
                 }
             } else {
                 newTransformValue -= menuItemWidth;
-                if (currentMenuItem === 4) {
-                    const firstSet = duplicatedMenuItems.splice(0, menuItems.length);
-                    duplicatedMenuItems.push(...firstSet);
-                    newTransformValue += menuItemWidth * menuItems.length;
-                }
-            }
-
-            requestAnimationFrame(() => {
-                if (menuRef.current) {
-                    menuRef.current.style.transform = `translateX(${newTransformValue}px)`;
+                if (currentMenuItem !== 4) {
                     menuRef.current.style.transition = 'transform 0.5s ease-in-out';
                 }
-            });
+                if (currentMenuItem === 4) {
+                    menuRef.current.style.transition = 'transform 0s';
+                    const firstSet = duplicatedMenuItems.splice(0, menuItems.length);
+                    duplicatedMenuItems.push(...firstSet);
+                    newTransformValue += 2400;
+                    setTimeout(() => {
+                        if (menuRef.current) {
+                            newTransformValue -= menuItemWidth;
+                            menuRef.current.style.transition = 'transform 0.5s ease-in-out';
+                            menuRef.current.style.transform = `translateX(${initialOffset}px)`;
+                        }
+                    }, 10);
+                }
+            }
+            menuRef.current.style.transform = `translateX(${newTransformValue}px)`;
         }
     }, [menuAnimation, menuItemWidth, currentMenuItem, menuItems.length, duplicatedMenuItems]);
 
