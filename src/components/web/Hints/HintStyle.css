@@ -57,3 +57,8 @@
 .key-pressed {
     transform: scale(0.9);
 }
+
+.hint-legend {
+    opacity: 1;
+    transition: opacity 1s;
+}

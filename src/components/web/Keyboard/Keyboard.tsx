@@ -38,9 +38,12 @@ export const Keyboard = (props: Props): React.ReactElement => {
                 setTimeout(() => {
                     props.isOpenAnimationFinished(true);
                     const escapeHint = document.getElementById('OpenCloseKeysHintMenu');
-                    if (escapeHint) {
+                    const hintLegendBottom = document.getElementById('hint-legend-bottom');
+
+                    if (escapeHint && hintLegendBottom) {
                         setTimeout(() => {
                             escapeHint.style.opacity = '1';
+                            hintLegendBottom.style.opacity = '1';
                         }, 100);
                     }
                 }, 2500);
@@ -53,14 +56,18 @@ export const Keyboard = (props: Props): React.ReactElement => {
         const keyboardGroup = document.getElementById('Keyboard');
         if (props.isCloseAnimation) {
             props.isCloseAnimationFinished(false);
+
             if (keyboardGroup) {
                 const allGElements = keyboardGroup.getElementsByTagName('g');
                 const shuffledArray = createAndShuffleArray(allGElements.length);
 
                 const escapeHint = document.getElementById('OpenCloseKeysHintMenu');
-                if (escapeHint) {
+                const hintLegendBottom = document.getElementById('hint-legend-bottom');
+
+                if (escapeHint && hintLegendBottom) {
                     setTimeout(() => {
                         escapeHint.style.opacity = '0';
+                        hintLegendBottom.style.opacity = '0';
                     }, 100);
                 }
 
