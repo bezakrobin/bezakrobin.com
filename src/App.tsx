@@ -10,7 +10,7 @@ import {Page as MobilePage} from "./components/mobile/Page/Page";
 import {MobileIsNotSupported} from './components/mobile/MobileIsNotSupported/MobileIsNotSupported';
 
 const MainContent: React.FC = () => {
-    const {currentMenuItem, menuItems, setMenuItemIndex, currentPage, setCurrentPage, showLegend} = useNavigation();
+    const {currentMenuItem, menuItems, setMenuItemIndex, currentPage, setCurrentPage, showLegend, setMenuAnimation} = useNavigation();
 
     useEffect(() => {
         if (currentPage === null) {
@@ -26,9 +26,9 @@ const MainContent: React.FC = () => {
 
         switch (functionName) {
             case 'menuPrevious':
-                return () => menuPrevious(currentMenuItem, menuItems.length, setMenuItemIndex);
+                return () => menuPrevious(currentMenuItem, menuItems.length, setMenuItemIndex, setMenuAnimation);
             case 'menuNext':
-                return () => menuNext(currentMenuItem, menuItems.length, setMenuItemIndex);
+                return () => menuNext(currentMenuItem, menuItems.length, setMenuItemIndex, setMenuAnimation);
             default:
                 return undefined;
         }
