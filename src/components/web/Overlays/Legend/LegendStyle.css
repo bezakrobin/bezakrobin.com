@@ -9,15 +9,31 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: white;
-    align-items: center;
-    justify-content: center;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.keyboard-container {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .highlight {
     stroke: white !important;
     stroke-width: 2;
     filter: url(#neon-effect);
+}
+
+.hint-legend-bottom {
+    opacity: 0;
+    transition: opacity 1s;
+    flex: 0 1 auto;
+    text-align: center;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .legend img {
