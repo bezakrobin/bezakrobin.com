@@ -74,7 +74,7 @@ export const Menu: React.FC = () => {
             }
             menuRef.current.style.transform = `translateX(${newTransformValue}px)`;
         }
-    }, [menuAnimation, menuItemWidth, currentMenuItem, menuItems.length, duplicatedMenuItems]);
+    }, [menuAnimation, currentMenuItem]);
 
     return (
         <div className="menu-container">
